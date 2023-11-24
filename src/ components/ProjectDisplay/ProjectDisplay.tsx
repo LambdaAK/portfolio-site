@@ -2,6 +2,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import GitHubLink from "../GitHubLink/GitHubLink"
 import "./ProjectDisplay.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Parallax } from "react-scroll-parallax"
 
 export interface ProjectDisplayProps {
   name: string,
@@ -15,11 +16,9 @@ const ProjectName = (props: { name: string, iconName: string }) => {
   return (
     <div className="project-name">
       {props.name}
-
       <GitHubLink
         link={props.iconName}
       />
-
     </div >
   )
 }
@@ -57,10 +56,12 @@ const TechnologiesUsed = (props: { technologies: Technology[] }) => {
 
 export default function ProjectDisplay(props: ProjectDisplayProps) {
   return (
-    <div className="project-display">
-      <ProjectName name={props.name} iconName="a" />
-      <ProjectDescription description={props.description} />
-      <TechnologiesUsed technologies={props.technologies} />
-    </div>
+    <Parallax translateX={['-200px', '200px']}>
+      <div className="project-display">
+        <ProjectName name={props.name} iconName="a" />
+        <ProjectDescription description={props.description} />
+        <TechnologiesUsed technologies={props.technologies} />
+      </div>
+    </Parallax>
   )
 }

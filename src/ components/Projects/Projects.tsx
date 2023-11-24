@@ -29,6 +29,18 @@ const projectInfo: ProjectDisplayProps[] = [
       }
     ],
     github: "a link"
+  },
+  {
+    name: "LambdaScript",
+    pictures: [],
+    description: "Lambdascript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code. It has key features that allow users to write clean and expressive code.",
+    technologies: [
+      {
+        name: "OCaml",
+        icon: "ocaml"
+      }
+    ],
+    github: "a link"
   }
 ]
 
