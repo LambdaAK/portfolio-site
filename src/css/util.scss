@@ -24,7 +24,6 @@ $extra-large: 1200px;
     @media (min-width: $extra-large) {@content}
 }
 
-
 $primary-color: #88D498;
 $secondary-color: #8D86C9;
 $background-color: #1e1e1e;
@@ -50,4 +49,8 @@ $light-md-background: #E0E0E0;
 @mixin shadow-no-shadow {
     border-radius: 8px;
     padding: 10px;
+}
+
+.github-button {
+    color: #f5f5f5;
 }

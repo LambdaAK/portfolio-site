@@ -12,14 +12,12 @@
 .nav-button {
   @include shadow-no-shadow;
   text-decoration: none;
-  &:hover {
-    cursor: pointer;
-  }
   color: black;
   transition: all 0.5s ease-in-out;
 
   &:hover {
     @include shadow;
+    cursor: pointer;
     background-color: $light-md-background
   }
 }

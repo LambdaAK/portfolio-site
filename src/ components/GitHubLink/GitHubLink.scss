@@ -1,0 +1,13 @@
+@import "./../../css/util.scss";
+
+.github-link {
+  @include shadow-no-shadow;
+  background-color: purple;
+  color: white;
+  transition: all 0.2s ease-in-out;
+  margin-left: 0.5rem;
+  &:hover {
+    @include shadow;
+    transform: translateY(10px);
+  }
+}

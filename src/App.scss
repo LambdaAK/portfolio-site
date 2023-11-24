@@ -1,2 +1,30 @@
 @import "./css/util.scss";
 
+#welcome {
+  height: 100vh;
+}
+
+#projects {
+  height: 100vh;
+}
+
+#contact {
+  height: 100vh;
+}
+
+#education {
+  height: 100vh;
+}
+
+#experience {
+  height: 100vh;
+}
+
+#courses {
+  height: 100vh;
+}
+
+#app {
+  transition: all 0.5 ease-in-out;
+  backdrop-filter: blur(5px);
+}
