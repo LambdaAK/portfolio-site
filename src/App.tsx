@@ -1,7 +1,7 @@
 import './App.css'
 import Nav from './ components/Nav/Nav'
 import Projects from './ components/Projects/Projects'
-
+import WelcomeSection from './ components/WelcomeSection/WelcomeSection'
 
 function App() {
 
@@ -9,13 +9,14 @@ function App() {
 
     <div id="app">
       <Nav />
-      <div id="welcome">
-        <h1>Welcome</h1>
-      </div>
 
+      <i className="devicon-react-original"></i>
+
+      <i className="devicon-typescript-plain"></i>
+
+
+      <WelcomeSection />
       <Projects />
-
-
 
     </div>
   )

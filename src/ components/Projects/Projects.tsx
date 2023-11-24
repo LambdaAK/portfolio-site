@@ -1,29 +1,44 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDisplay"
+import SectionHeader from "../SectionHeader/SectionHeader"
 import "./Projects.css"
+import { faCss3, faJs, faReact, faSass } from "@fortawesome/free-brands-svg-icons"
 
 
 const projectInfo: ProjectDisplayProps[] = [
   {
-    name: "Project 1",
+    name: "AlgoSandbox",
     pictures: [],
-    description: "This is a project",
-    technologies: ["React", "TypeScript", "CSS"],
+    description: "AlgoSandbox is a powerful tool designed to help you grasp complex algorithms and data structures through visual representation. Whether you're a student, educator, or developer, AlgoSandbox provides an intuitive platform to experiment, learn, and teach algorithms in an engaging way.",
+    technologies: [
+      {
+        name: "React",
+        icon: "react"
+      },
+      {
+        name: "TypeScript",
+        icon: "typescript"
+      },
+      {
+        name: "SASS",
+        icon: "sass"
+      },
+      {
+        name: "Framer-Motion",
+        icon: "css3"
+      }
+    ],
     github: "a link"
-  },
-  {
-    name: "Project 2",
-    pictures: [],
-    description: "This is a project",
-    technologies: ["React", "TypeScript", "CSS", "Haskell"],
-    github: "a link"
-
   }
 ]
 
 export default function Projects() {
   return (
-    <div className="projects">
+
+    <div id="projects">
+      <SectionHeader text="Check out my projects!" />
       {
+
         projectInfo.map(project =>
           <ProjectDisplay {...project} />
         )

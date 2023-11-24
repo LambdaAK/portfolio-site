@@ -1,0 +1,31 @@
+
+
+#welcome {
+  height: 100vh;
+  width: 100vw;
+}
+
+.first-welcome-line {
+  margin-right: auto;
+  margin-left: 10rem;
+  width: fit-content;
+}
+
+.second-welcome-line {
+  margin-left: auto;
+  margin-right:auto;
+  width: fit-content;
+}
+
+.third-welcome-line {
+  margin-left: auto;
+  margin-right: 10rem;
+  width: fit-content;
+}
+
+#im-a-phrase {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  transition: all 0.5s ease-in-out;
+}
