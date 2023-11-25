@@ -126,7 +126,7 @@ const ImAlex = () => {
     <motion.div
       ref={scope}
     >
-      <h1 className="first-welcome-line">I'm <span className="name">Alex</span>.</h1>
+      <h1 className="first-welcome-line">I'm <span>Alex</span>.</h1>
 
     </motion.div>
   )
@@ -136,14 +136,10 @@ export default function WelcomeSection() {
   return (
     <div id="welcome">
       <div className="welcome-text">
-        <Parallax opacity={[1, 0]}>
-          <Hi />
-          <ImAlex />
-        </Parallax>
+        <Hi />
+        <ImAlex />
         <ImA />
-        <Parallax translateX={['100px', '-100px']}>
-          <Welcome />
-        </Parallax>
+        <Welcome />
       </div>
     </div>
   )

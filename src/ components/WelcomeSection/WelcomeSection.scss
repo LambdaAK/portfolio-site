@@ -1,4 +1,4 @@
-
+@import "./../../css/util.scss";
 
 #welcome {
   height: 100vh;
@@ -10,18 +10,21 @@
   margin-right: auto;
   margin-left: auto;
   width: fit-content;
+  color: $slate;
 }
 
 .second-welcome-line {
   margin-left: auto;
   margin-right:auto;
   width: fit-content;
+  color: $slate;
 }
 
 .third-welcome-line {
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
+  color: $slate;
 }
 
 #im-a-phrase {
@@ -29,4 +32,5 @@
   margin-right: auto;
   width: fit-content;
   transition: all 0.5s ease-in-out;
+  color: $slate;
 }
