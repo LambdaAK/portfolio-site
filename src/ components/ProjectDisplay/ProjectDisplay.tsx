@@ -55,13 +55,30 @@ const TechnologiesUsed = (props: { technologies: Technology[] }) => {
 }
 
 export default function ProjectDisplay(props: ProjectDisplayProps) {
+
+  const array1 = [
+    "-200px",
+    "200px"
+  ]
+
+  const array2 = [
+    "200px",
+    "-200px"
+  ]
+
   return (
-    <Parallax translateX={['-200px', '200px']}>
-      <div className="project-display">
+
+    <div className="project-display">
+      <Parallax translateX={['-200px', '200px']}>
         <ProjectName name={props.name} iconName="a" />
+      </Parallax>
+      <Parallax translateX={['-200px', '200px']}>
         <ProjectDescription description={props.description} />
+      </Parallax>
+      <Parallax translateX={['-200px', '200px']}>
         <TechnologiesUsed technologies={props.technologies} />
-      </div>
-    </Parallax>
+      </Parallax>
+    </div>
+
   )
 }

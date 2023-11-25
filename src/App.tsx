@@ -6,25 +6,15 @@ import { Parallax, ParallaxProvider, useParallax } from 'react-scroll-parallax'
 
 function App() {
 
-
   return (
     <ParallaxProvider>
-
       <div id="app">
-
-        <Nav />
 
         <WelcomeSection />
         <Projects />
 
-
-
       </div>
-
-
-
     </ParallaxProvider>
-
   )
 }
 

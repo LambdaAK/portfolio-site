@@ -6,8 +6,9 @@ export default function SectionHeader(
     text: string
   }
 ) {
+
   return (
-    <Parallax translateX={['-200px', '200px']}>
+    <Parallax scale={[0.5, 1]}>
       <div className="section-header">
         {props.text}
       </div>
