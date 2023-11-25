@@ -6,6 +6,13 @@
   margin-top: 25vh;
 }
 
+#welcome-content {
+  height: fit-content;
+  margin-left: 12vw;
+  margin-right: 12vw;
+  @include shadow;
+}
+
 .first-welcome-line {
   margin-right: auto;
   margin-left: auto;

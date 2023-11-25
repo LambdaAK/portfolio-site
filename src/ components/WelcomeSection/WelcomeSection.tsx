@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./WelcomeSection.css"
 import { Parallax } from "react-scroll-parallax"
 import { motion, useAnimate } from "framer-motion"
+import { TypeAnimation } from "react-type-animation"
 
 function sleep(seconds: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, seconds * 1000))
@@ -28,23 +29,41 @@ const ImA = () => {
 
   useEffect(() => {
     animateFunction()
-    const id = setInterval(() => {
-      setPhraseIndex((phraseIndex + 1) % phrases.length)
-    }, 2000)
-
-    return () => clearTimeout(id)
   }, [])
 
+
+  const delay: number = 2000
+
   return (
-    <motion.div ref={state} className="im-a"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 3 } }}
-      transition={{ duration: 1 }}
-    >
-      <h2 className="second-welcome-line">I'm a</h2>
-      <h1 id="im-a-phrase">
-        {phrases[phraseIndex]}
-      </h1>
+    <motion.div ref={state}>
+      <h2 className="second-welcome-line">
+        I'm a
+      </h2>
+      <motion.div ref={state} className="second-welcome-line">
+        <TypeAnimation
+          sequence={[
+            // Same substring at the start will only be typed out once, initially
+            'Software Engineer',
+            delay, // wait 1s before replacing "Mice" with "Hamsters"
+            'Machine Learning Enthusiast',
+            delay,
+            'PL Enthusiast',
+            delay,
+            "Full Stack Web Developer",
+            delay,
+            "Chess enjoyer",
+            delay,
+            "Rubik's cube solver",
+            delay,
+            "Dog lover",
+            delay,
+          ]}
+          wrapper="span"
+          speed={50}
+          style={{ fontSize: '2em', display: 'inline-block' }}
+          repeat={Infinity}
+        />
+      </motion.div >
     </motion.div>
   )
 }
@@ -68,10 +87,8 @@ const Welcome = () => {
       ref={scope}
     >
       <h2 className="third-welcome-line">Welcome to my website.</h2>
-
     </motion.div>
   )
-
 }
 
 const Hi = () => {
@@ -135,11 +152,13 @@ const ImAlex = () => {
 export default function WelcomeSection() {
   return (
     <div id="welcome">
-      <div className="welcome-text">
-        <Hi />
-        <ImAlex />
-        <ImA />
-        <Welcome />
+      <div id="welcome-content">
+        <div className="welcome-text">
+          <Hi />
+          <ImAlex />
+          <ImA />
+          <Welcome />
+        </div>
       </div>
     </div>
   )
