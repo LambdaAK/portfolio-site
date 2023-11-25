@@ -22,9 +22,9 @@ const ImA = () => {
   const [state, animate] = useAnimate()
 
   const animateFunction = async () => {
-    await animate(state.current, { opacity: 0, x: -100 }, { duration: 0 })
+    await animate(state.current, { opacity: 0 }, { duration: 0 })
     await sleep(2)
-    await animate(state.current, { x: 0, opacity: 100 }, { duration: 2, ease: "easeInOut" })
+    await animate(state.current, { opacity: 100 }, { duration: 2, ease: "easeInOut" })
   }
 
   useEffect(() => {
@@ -42,9 +42,8 @@ const ImA = () => {
       <motion.div ref={state} className="second-welcome-line">
         <TypeAnimation
           sequence={[
-            // Same substring at the start will only be typed out once, initially
             'Software Engineer',
-            delay, // wait 1s before replacing "Mice" with "Hamsters"
+            delay,
             'Machine Learning Enthusiast',
             delay,
             'PL Enthusiast',
@@ -101,8 +100,6 @@ const Hi = () => {
     await sleep(0.5)
     await animate(scope.current, { rotate: 90 }, { duration: 0.5 })
     await animate(scope.current, { rotate: 0 }, { duration: 0.5 })
-    await animate(scope.current, { x: -100 }, { duration: 2 })
-    await animate(scope.current, { x: 0 }, { duration: 0.5 })
   }
 
   useEffect(() => {
@@ -131,8 +128,6 @@ const ImAlex = () => {
     await animate(scope.current, { y: 10 }, { duration: 0.5 })
     await animate(scope.current, { y: 0 }, { duration: 0.5 })
 
-    await animate(scope.current, { x: 100 }, { duration: 2 })
-    await animate(scope.current, { x: 0 }, { duration: 0.5 })
   }
 
   useEffect(() => {

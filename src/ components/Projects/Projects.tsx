@@ -3,6 +3,7 @@ import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDi
 import SectionHeader from "../SectionHeader/SectionHeader"
 import "./Projects.css"
 import { faCss3, faJs, faReact, faSass } from "@fortawesome/free-brands-svg-icons"
+import { useEffect } from "react"
 
 
 const projectInfo: ProjectDisplayProps[] = [
@@ -28,7 +29,13 @@ const projectInfo: ProjectDisplayProps[] = [
         icon: "css3"
       }
     ],
-    github: "a link"
+    github: "a link",
+    features: [
+      "Animated home page",
+      "Animated sandboxes for each algorithm/data structure",
+      "Home page that's searchable by tags",
+      "Responsive design",
+    ]
   },
   {
     name: "LambdaScript",
@@ -40,15 +47,25 @@ const projectInfo: ProjectDisplayProps[] = [
         icon: "ocaml"
       }
     ],
-    github: "a link"
+    github: "a link",
+    features: [
+      "Pattern matching",
+      "Type inference",
+      "Higher order functions",
+      "Currying",
+      "Recursive functions",
+      "Anonymous functions",
+      "Closures"
+    ]
   }
 ]
 
 export default function Projects() {
+
   return (
 
     <div id="projects">
-      <SectionHeader text="Check out my projects!" />
+      <SectionHeader text="Projects" />
       {
 
         projectInfo.map(project =>

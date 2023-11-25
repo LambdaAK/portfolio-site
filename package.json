@@ -20,6 +20,7 @@
     "framer-motion": "^10.16.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-gallery-carousel": "^0.4.0",
     "react-scroll-parallax": "^3.4.5",
     "react-syntax-highlighter": "^15.5.0",
     "react-type-animation": "^3.2.0",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "@types/react": "^18.2.37",
     "@types/react-dom": "^18.2.15",
+    "@types/react-gallery-carousel": "^0.2.5",
     "@typescript-eslint/eslint-plugin": "^6.10.0",
     "@typescript-eslint/parser": "^6.10.0",
     "@vitejs/plugin-react": "^4.2.0",

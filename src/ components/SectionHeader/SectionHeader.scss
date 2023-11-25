@@ -7,5 +7,6 @@
   font-size: 3rem;
   width: fit-content;
   margin-bottom: 2rem;
+  @include shadow;
 
 }

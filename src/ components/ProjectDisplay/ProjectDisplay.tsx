@@ -3,6 +3,7 @@ import GitHubLink from "../GitHubLink/GitHubLink"
 import "./ProjectDisplay.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Parallax } from "react-scroll-parallax"
+import { useEffect } from "react"
 
 export interface ProjectDisplayProps {
   name: string,
@@ -10,6 +11,7 @@ export interface ProjectDisplayProps {
   description: string,
   technologies: Technology[],
   github: string,
+  features: string[]
 }
 
 const ProjectName = (props: { name: string, iconName: string }) => {
@@ -54,6 +56,47 @@ const TechnologiesUsed = (props: { technologies: Technology[] }) => {
   )
 }
 
+const Features = (props: { features: string[] }) => {
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show")
+        }
+        else {
+          entry.target.classList.remove("show")
+        }
+      })
+
+    })
+
+    const hidden = document.querySelectorAll(".hidden .feature")
+
+    hidden.forEach(e => {
+      observer.observe(e)
+    })
+  }, [])
+
+  return (
+    <div className="features">
+      <h1>Features</h1>
+      <ul className="features-list">
+        {
+          props.features.map(feature => {
+            return (
+              <li className="feature hidden">
+                <FontAwesomeIcon icon="check" />
+                {feature}
+              </li>
+            )
+          })
+        }
+      </ul>
+    </div>
+  )
+}
+
 export default function ProjectDisplay(props: ProjectDisplayProps) {
 
   const array1 = [
@@ -67,17 +110,11 @@ export default function ProjectDisplay(props: ProjectDisplayProps) {
   ]
 
   return (
-
-    <div className="project-display">
-      <Parallax translateX={['-200px', '200px']}>
-        <ProjectName name={props.name} iconName="a" />
-      </Parallax>
-      <Parallax translateX={['-200px', '200px']}>
-        <ProjectDescription description={props.description} />
-      </Parallax>
-      <Parallax translateX={['-200px', '200px']}>
-        <TechnologiesUsed technologies={props.technologies} />
-      </Parallax>
+    <div className="project-display hidden">
+      <ProjectName name={props.name} iconName="a" />
+      <ProjectDescription description={props.description} />
+      <TechnologiesUsed technologies={props.technologies} />
+      <Features features={props.features} />
     </div>
 
   )

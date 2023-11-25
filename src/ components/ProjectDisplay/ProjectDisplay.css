@@ -42,4 +42,26 @@
   width: fit-content;
 }
 
+.hidden {
+  opacity: 0;
+  transition: all 0.75s ease-in-out;
+  transform: translateX(-100px);
+  filter: blur(5px);
+}
+
+.show {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+
+.features {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  box-shadow: 0 30px 30px hsla(0, 0%, 0%, 0.25);
+  border-radius: 8px;
+  padding: 10px;
+}
+
 /*# sourceMappingURL=ProjectDisplay.css.map */
