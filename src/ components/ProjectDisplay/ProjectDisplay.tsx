@@ -1,8 +1,6 @@
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import GitHubLink from "../GitHubLink/GitHubLink"
 import "./ProjectDisplay.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Parallax } from "react-scroll-parallax"
 import { useEffect } from "react"
 
 export interface ProjectDisplayProps {
@@ -99,15 +97,6 @@ const Features = (props: { features: string[] }) => {
 
 export default function ProjectDisplay(props: ProjectDisplayProps) {
 
-  const array1 = [
-    "-200px",
-    "200px"
-  ]
-
-  const array2 = [
-    "200px",
-    "-200px"
-  ]
 
   return (
     <div className="project-display hidden">
@@ -115,7 +104,15 @@ export default function ProjectDisplay(props: ProjectDisplayProps) {
       <ProjectDescription description={props.description} />
       <TechnologiesUsed technologies={props.technologies} />
       <Features features={props.features} />
+      <div className="project-display-pictures">
+        {
+          props.pictures.map(picture => {
+            return (
+              <img src={picture} alt="" />
+            )
+          })
+        }
+      </div>
     </div>
-
   )
 }

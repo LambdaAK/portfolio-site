@@ -1,10 +1,6 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDisplay"
 import SectionHeader from "../SectionHeader/SectionHeader"
 import "./Projects.css"
-import { faCss3, faJs, faReact, faSass } from "@fortawesome/free-brands-svg-icons"
-import { useEffect } from "react"
-
 
 const projectInfo: ProjectDisplayProps[] = [
   {
