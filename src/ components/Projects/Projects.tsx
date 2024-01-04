@@ -36,7 +36,7 @@ const projectInfo: ProjectDisplayProps[] = [
   {
     name: "LambdaScript",
     pictures: [],
-    description: "Lambdascript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code. It has key features that allow users to write clean and expressive code.",
+    description: "Lambdascript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code.",
     technologies: [
       {
         name: "OCaml",
@@ -51,7 +51,9 @@ const projectInfo: ProjectDisplayProps[] = [
       "Currying",
       "Recursive functions",
       "Anonymous functions",
-      "Closures"
+      "Closures",
+      "Higher-order kind system based on lambda calculus",
+      "Polymorphic algebraic data types"
     ]
   }
 ]
