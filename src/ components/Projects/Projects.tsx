@@ -184,7 +184,7 @@ const LambdaScriptDemo = () => {
         {
           demoProps.map(props => {
             return (
-              <div className="ls-demo">
+              <div>
                 <h1 className="ls-ex-desc">
                   {props.description}
                 </h1>
