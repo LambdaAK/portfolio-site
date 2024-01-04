@@ -7,6 +7,7 @@
   justify-content: space-evenly;
   background-color: $light-background;
   transition: all 0.5 ease-in-out;
+  opacity: 0; // will change to 1 after the animation
 }
 
 .nav-button {

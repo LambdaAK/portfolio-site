@@ -4,6 +4,7 @@ import "./ProjectDisplay.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { Parallax } from "react-scroll-parallax"
 import { useEffect } from "react"
+import SectionHeader from "../SectionHeader/SectionHeader"
 
 export interface ProjectDisplayProps {
   name: string,
@@ -11,15 +12,16 @@ export interface ProjectDisplayProps {
   description: string,
   technologies: Technology[],
   github: string,
-  features: string[]
+  features: string[],
+  extraComponents: JSX.Element[]
 }
 
-const ProjectName = (props: { name: string, iconName: string }) => {
+const ProjectName = (props: { name: string, link: string }) => {
   return (
     <div className="project-name">
       {props.name}
       <GitHubLink
-        link={props.iconName}
+        link={props.link}
       />
     </div >
   )
@@ -41,7 +43,7 @@ export interface Technology {
 const TechnologiesUsed = (props: { technologies: Technology[] }) => {
   return (
     <div className="technologies-used">
-      <h1 className="technologies-used-header">Technologies used</h1>
+      <SectionHeader text="Technologies Used" />
       <div className="technologies-used-content">
 
         {props.technologies.map(technology =>
@@ -97,24 +99,37 @@ const Features = (props: { features: string[] }) => {
   )
 }
 
+const ProjectDisplayPictures = (props: { pictures: string[] }) => {
+  return (
+    <div className="project-display-pictures">
+      {
+        props.pictures.map(pictureDir => {
+          return (
+
+            <img src={pictureDir} alt="" className="project-picture" style={
+              {
+                width: "500px"
+              }
+            } />
+
+          )
+        })
+      }
+
+    </div>
+  )
+}
+
 export default function ProjectDisplay(props: ProjectDisplayProps) {
-
-  const array1 = [
-    "-200px",
-    "200px"
-  ]
-
-  const array2 = [
-    "200px",
-    "-200px"
-  ]
 
   return (
     <div className="project-display hidden">
-      <ProjectName name={props.name} iconName="a" />
+      <ProjectName name={props.name} link={props.github} />
       <ProjectDescription description={props.description} />
       <TechnologiesUsed technologies={props.technologies} />
       <Features features={props.features} />
+      <ProjectDisplayPictures pictures={props.pictures} />
+      {props.extraComponents}
     </div>
 
   )
