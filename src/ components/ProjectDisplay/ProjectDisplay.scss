@@ -43,12 +43,19 @@
 
 }
 
-.project-images {
-
-}
-
-.project-image {
-
+.project-display-pictures {
+  // use grid to display the pictures
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  margin-top: 100px;
+  @include xl {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .hidden {
@@ -69,4 +76,11 @@
   margin-right: auto;
   width: fit-content;
   @include shadow;
+}
+
+.project-picture {
+  box-shadow: 0 30px 30px hsla(0, 0%, 0%, 0.25);
+  border-radius: 8px;
+  transition: all 0.25s ease-in-out;
+
 }

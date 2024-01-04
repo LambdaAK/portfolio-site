@@ -1,5 +1,6 @@
-import { motion } from "framer-motion"
+import { motion, useAnimate } from "framer-motion"
 import "./Nav.css"
+import { useEffect } from "react"
 
 interface navButtonProps {
   text: string,
@@ -11,11 +12,7 @@ const NavButton = (props: navButtonProps) => {
     <div className="nav-button"
       onClick={
         () => {
-          const element = document.getElementById(props.link.slice(1))
-          if (element) {
-            element.scrollIntoView({ behavior: "smooth" })
-          }
-
+          window.location.href = props.link
         }
       }
     >
@@ -26,20 +23,24 @@ const NavButton = (props: navButtonProps) => {
 
 export default function Nav() {
 
+  const [state, animate] = useAnimate()
+
+  const animateFunction = async () => {
+    await animate(state.current, { opacity: 1 }, { duration: 1 })
+  }
+
+  useEffect(() => {
+    animateFunction()
+  }, [])
+
   return (
     <motion.div
       id="nav"
-      // make it float in from the top
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 1.5 }}
-    >
-      <NavButton text="Welcome" link="#welcome" />
-      <NavButton text="Projects" link="#projects" />
-      <NavButton text="Education" link="#education" />
-      <NavButton text="Experience" link="#experience" />
-      <NavButton text="Courses" link="#courses" />
-      <NavButton text="Contact" link="#contact" />
-    </motion.div>
+      ref={state}>
+      <NavButton text="Welcome" link="/" />
+      <NavButton text="Projects" link="/projects" />
+      <NavButton text="Education" link="/education" />
+      <NavButton text="Experience" link="/experience" />
+    </motion.div >
   )
 }

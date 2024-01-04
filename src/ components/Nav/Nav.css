@@ -11,6 +11,7 @@
   justify-content: space-evenly;
   background-color: #EDEDED;
   transition: all 0.5 ease-in-out;
+  opacity: 0;
 }
 
 .nav-button {

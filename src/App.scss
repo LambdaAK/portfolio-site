@@ -26,5 +26,8 @@
 
 #app {
   transition: all 0.5 ease-in-out;
-  backdrop-filter: blur(5px);
+}
+
+.transition-fade {
+  transition: all 0.5s ease-in-out;
 }

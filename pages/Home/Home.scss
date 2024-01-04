@@ -1,0 +1,57 @@
+@import "./../../css/util.scss";
+.title {
+    @include shadow;
+    font-size: 2rem;
+    color: $primary-color;
+    @include sm {
+        font-size: 3rem;
+    }
+    @include md {
+        font-size: 4rem;
+    }
+}
+
+.desc {
+    @include shadow;
+    font-size: 1rem;
+
+    @include sm {
+        font-size: 1.2rem;
+    }
+
+    @include md {
+        font-size: 1.5rem;
+    }
+}
+
+.algos-link {
+    @include shadow;
+    color: $interactive-color;
+    text-decoration: none;
+    font-size: 2rem;
+
+    @include sm {
+        font-size: 3rem;
+    }
+
+    @include md {
+        font-size: 4rem;
+    }
+
+    &:hover {
+        // move it
+        scale: 1.15;
+        
+    }
+
+}
+
+.home-container {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 5rem;
+    align-items: center;
+    
+}

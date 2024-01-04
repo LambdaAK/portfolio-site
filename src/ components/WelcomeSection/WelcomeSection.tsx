@@ -1,23 +1,27 @@
-import { useEffect } from "react"
+import { useContext, useEffect, useState } from "react"
 import "./WelcomeSection.css"
+import { Parallax } from "react-scroll-parallax"
 import { motion, useAnimate } from "framer-motion"
 import { TypeAnimation } from "react-type-animation"
+import { AnimationFunctionContext } from "../../App"
 
 function sleep(seconds: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, seconds * 1000))
 }
-/*
+
 const phrases: string[] = [
   "full-stack web developer",
   "software engineer",
   "machine learning enthusiast",
   "PL enthusiast",
   "dog lover",
-]*/
+]
 
 const ImA = () => {
 
+  const [phraseIndex, setPhraseIndex] = useState(0)
   const [state, animate] = useAnimate()
+
 
   const animateFunction = async () => {
     await animate(state.current, { opacity: 0 }, { duration: 0 })
@@ -28,7 +32,6 @@ const ImA = () => {
   useEffect(() => {
     animateFunction()
   }, [])
-
 
   const delay: number = 2000
 
@@ -143,8 +146,13 @@ const ImAlex = () => {
 }
 
 export default function WelcomeSection() {
+
+  useEffect(() => {
+    console.log("setting exit animation function")
+  }, [])
+
   return (
-    <div id="welcome">
+    <motion.div id="welcome">
       <div id="welcome-content">
         <div className="welcome-text">
           <Hi />
@@ -153,6 +161,6 @@ export default function WelcomeSection() {
           <Welcome />
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
