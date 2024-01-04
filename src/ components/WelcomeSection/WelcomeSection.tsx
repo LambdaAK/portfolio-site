@@ -1,14 +1,15 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect } from "react"
 import "./WelcomeSection.css"
-import { Parallax } from "react-scroll-parallax"
+
 import { motion, useAnimate } from "framer-motion"
 import { TypeAnimation } from "react-type-animation"
-import { AnimationFunctionContext } from "../../App"
+
 
 function sleep(seconds: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, seconds * 1000))
 }
 
+/*
 const phrases: string[] = [
   "full-stack web developer",
   "software engineer",
@@ -16,10 +17,12 @@ const phrases: string[] = [
   "PL enthusiast",
   "dog lover",
 ]
+*/
+
 
 const ImA = () => {
 
-  const [phraseIndex, setPhraseIndex] = useState(0)
+  /*const [phraseIndex, setPhraseIndex] = useState(0)*/
   const [state, animate] = useAnimate()
 
 

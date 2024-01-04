@@ -1,8 +1,6 @@
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core"
 import GitHubLink from "../GitHubLink/GitHubLink"
 import "./ProjectDisplay.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { Parallax } from "react-scroll-parallax"
 import { useEffect } from "react"
 import SectionHeader from "../SectionHeader/SectionHeader"
 

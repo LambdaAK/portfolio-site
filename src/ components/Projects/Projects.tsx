@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDisplay"
 import SectionHeader from "../SectionHeader/SectionHeader"
 import "./Projects.css"
