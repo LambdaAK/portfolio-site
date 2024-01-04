@@ -4,52 +4,175 @@ import "./Projects.css"
 
 interface InputOutputPair {
   input: string,
-  output: string
+  output: string,
+
 }
 
-const pairs: InputOutputPair[] = [
+interface DemoProps {
+  description: string,
+  pairs: InputOutputPair[]
+}
+
+const demoProps: DemoProps[] = [
   {
-    input: `bind rec map f arr <-
-    switch arr =>
+    description: "Option Monad",
+    pairs: [
+      {
+        input:
+          `type Option a =
+  | None
+  | Just (a)`
+        ,
+        output: "Option: * -> *"
+      },
+      {
+        input:
+
+          `let lift f x =
+  switch x =>
+  | None -> None
+  | Just v -> Just (f v)
+  end`,
+        output: "lift: (a -> b) -> Option a -> Option b"
+
+      },
+      {
+        input:
+          `let (>>=) x f =
+  switch x =>
+  | None -> None
+  | Just v -> f v
+  end`,
+        output: "bind: Option a -> (a -> Option b) -> Option b"
+      },
+      {
+        input:
+          `(Just 42) >>= (fun x -> Just (x + 1))
+          >>= (fun x -> Just (x * x))
+          `,
+        output: "Just (86): Option Int"
+      },
+      {
+        input:
+          `None
+    >>= (fun x -> Just (x + 1))
+    >>= (fun x -> Just (x * x))
+          `,
+        output: "None: Option Int"
+      }
+    ]
+  },
+  {
+    description: "Higher-Order Functions over lists",
+    pairs: [
+      {
+        input: `let rec reduce_left op arr acc =
+      switch arr =>
+      | [] -> acc
+      | h :: t -> reduce_left op t (op acc h)
+      end`,
+        output: "reduce_left: (a -> b -> a) -> [b] -> a -> a: function",
+      },
+      {
+        input: `let rec reduce_right op acc arr =
+      switch arr =>
+      | [] -> acc
+      | h :: t -> op h (reduce_right op acc t)
+      end`,
+        output: "reduce_right: (a -> b -> b) -> b -> [a] -> b: function",
+      },
+      {
+        input: `let rec map f arr =
+      switch arr =>
       | [] -> []
       | h :: t -> f h :: map f t
-    end
-  in
-  map`,
-    output: "(t1 -> t2) -> [t1] -> [t2]: function"
-  },
-  {
-    input: `bind rec filter f arr <-
-    switch arr =>
+      end
+        
+        `,
+        output: "map: (a -> b) -> [a] -> [b]: function",
+      },
+      {
+        input: `let rec filter p arr =
+      switch arr =>
       | [] -> []
       | h :: t ->
-        if f h then h :: filter t
-        else filter t
+        if p h then h :: filter p t
+        else filter p t
       end
-  in
-  filter`,
-    output: `(t1 -> bool) -> [t1] -> [t1]: function`
+        
+        `,
+        output: "filter: (a -> Bool) -> [a] -> [a]: function",
+      }
+    ]
   },
   {
-    input: `bind rec fold op arr acc <-
-    switch arr =>
-    | [] -> acc
-    | h :: t -> fold op t (op acc h)
-    end
-  in
-  fold`,
-    output: `(t1 -> t2 -> t1) -> [t2] -> t1 -> t1: function`
+    description: "Binary Tree Functor",
+    pairs: [
+      {
+        input:
+          `type Tree a =
+  | Leaf
+  | Node (a, Tree a, Tree a)`
+        ,
+        output: "Tree: * -> *"
+      },
+      {
+        input:
+          `let rec lift f tree =
+  switch tree =>
+  | Leaf -> Leaf
+  | Node (v, l, r) ->
+      Node (f v, lift f l, lift f r)
+  end
+        
+        `,
+        output: "map_tree: (a -> b) -> Tree a -> Tree b"
+      },
+      {
+        input:
+          `let rec inorder t =
+  switch t =>
+  | Leaf -> []
+  | Node (l, v, r) ->
+      inorder l ++ [v] ++ inorder r
+  end
+        `
+        ,
+        output: "inorder: Tree a -> [a]"
+      }
+    ]
   },
   {
-    input: `bind rec fold op arr acc <-
-    switch arr =>
-    | [] -> acc
-    | h :: t -> op h (fold op t acc)
-    end
-  in
-  fold`,
-    output: `(t1 -> t2 -> t1) -> [t1] -> t2 -> t2: function`
+    description: "Syntactic sugar for lists",
+    pairs: [
+      {
+        input: "[x * x | x <- [1, 2, 3, 4, 5]]",
+        output: "[1, 4, 9, 16, 25]: [Int]"
+      },
+      {
+        input: "[x + y | x <- [1, 2, 3], y <- [4, 5, 6]]",
+        output: "[5, 6, 7, 6, 7, 8, 7, 8, 9]: [Int]"
+      },
+      {
+        input: "[1 ... 10]",
+        output: "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]: [Int]"
+      },
+      {
+        input: `let rec (++) a b = 
+  switch a =>
+  | [] -> b
+  | h :: t -> h :: (t ++ b)
+  end
+        `,
+        output: "(++): [a] -> [a] -> [a]"
+      },
+      {
+        input: `[1, 2, 3, 4] ++ [5, 6, 7, 8]`,
+        output: "[1, 2, 3, 4, 5, 6, 7, 8]: [Int]"
+      }
+    ]
   }
+
 ]
 
 const LambdaScriptDemo = () => {
@@ -59,25 +182,35 @@ const LambdaScriptDemo = () => {
       <div className="lambdascript-demo">
 
         {
-          pairs.map(pair => {
+          demoProps.map(props => {
             return (
-              <div className="lambdascript-in-out">
-                <div className="lambdascript-input">
-                  <div>
-                    Input:
-                  </div>
-                  <pre className="lambdascript-input-text">
-                    {pair.input}
-                  </pre>
-                </div>
-                <div className="lambdascript-output">
-                  <div>Output: </div>
-                  <pre className="lambdascript-output-text">{pair.output}</pre>
-                </div>
+              <div className="ls-demo">
+                <h1 className="ls-ex-desc">
+                  {props.description}
+                </h1>
 
+                <div className="ls-demo-instance">
+                  <h2>Input:</h2>
+                  <h2>Output:</h2>
+                  {
+                    props.pairs.map(pair => {
+                      return (
+                        <>
+                          <pre className="ls-input">
+                            {pair.input}
+                          </pre>
+                          <pre className="ls-output">
+                            {pair.output}
+                          </pre>
+                        </>
+                      )
+                    })
+                  }
+                </div>
               </div>
             )
           })
+
         }
       </div>
     </>
@@ -124,14 +257,14 @@ const projectInfo: ProjectDisplayProps[] = [
   {
     name: "LambdaScript",
     pictures: [],
-    description: "Lambdascript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code. It has key features that allow users to write clean and expressive code.",
+    description: "Lambdascript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code.",
     technologies: [
       {
         name: "OCaml",
         icon: "ocaml"
       }
     ],
-    github: "a link",
+    github: "https://github.com/LambdaAK/LambdaScript",
     features: [
       "Pattern matching",
       "Type inference",

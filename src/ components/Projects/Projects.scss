@@ -4,39 +4,54 @@
   
 }
 
-.lambdascript-in-out {
+.ls-ex-desc {
+  margin-bottom: 16px;
+
+}
+
+.ls-demo {
+  @include shadow;
+}
+
+.ls-pair {
   @include shadow;
   height: fit-content;
 }
 
 .lambdascript-demo {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+
+
+}
+
+.ls-input{
+  border-style: solid;
+  border-radius: 8px;
+  border-width: 1px;
+  padding: 10px;
+  @include shadow;
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+  height: fit-content;
+  margin: auto
+  
 }
 
-.lambdascript-input {
-  margin-bottom: 16px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.lambdascript-input-text {
-  margin-left: auto;
-  margin-right: auto;
-  width: fit-content;
-}
-
-.lambdascript-output-text {
-  @extend .lambdascript-input;  
+.ls-output {
+  @extend .ls-input; 
+  
 }
 
 .lambdascript-demo-text {
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
+}
+
+.ls-demo-instance {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+
 }
