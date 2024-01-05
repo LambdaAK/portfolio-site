@@ -32,6 +32,12 @@
   gap: 2rem;
 }
 
+.extra-component {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
 .technology {
   @include shadow;
 }

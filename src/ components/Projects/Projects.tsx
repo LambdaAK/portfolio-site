@@ -1,9 +1,8 @@
-import { motion, useAnimate } from "framer-motion"
+import { motion } from "framer-motion"
 import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDisplay"
 import SectionHeader from "../SectionHeader/SectionHeader"
 import "./Projects.css"
 import { TypeAnimation } from "react-type-animation"
-import { useEffect } from "react"
 
 interface InputOutputPair {
   input: string,
@@ -236,39 +235,18 @@ const demoTexts: (string | number)[] = demoProps.flatMap(demo => {
 
 })
 
-
-function sleep(seconds: number): Promise<void> {
-  return new Promise(resolve => setTimeout(resolve, seconds * 1000))
-}
-
 const LambdaScriptDemo = () => {
 
-  /*const [phraseIndex, setPhraseIndex] = useState(0)*/
-  const [state, animate] = useAnimate()
-
-
-  const animateFunction = async () => {
-    await animate(state.current, { opacity: 0 }, { duration: 0 })
-    await sleep(2)
-    await animate(state.current, { opacity: 100 }, { duration: 2, ease: "easeInOut" })
-  }
-
-  useEffect(() => {
-    animateFunction()
-  }, [])
-
   return (
-    <motion.div ref={state}>
-      <motion.pre ref={state}>
-        <TypeAnimation
-          sequence={demoTexts}
-          wrapper="span"
-          speed={70}
-          style={{ fontSize: '2em', display: 'inline-block' }}
-          repeat={Infinity}
-        />
-      </motion.pre >
-    </motion.div>
+    <motion.pre>
+      <TypeAnimation
+        sequence={demoTexts}
+        wrapper="span"
+        speed={70}
+        style={{ fontSize: '2em', display: 'inline-block' }}
+        repeat={Infinity}
+      />
+    </motion.pre >
   )
 }
 

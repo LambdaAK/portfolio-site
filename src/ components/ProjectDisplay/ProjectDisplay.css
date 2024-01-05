@@ -30,6 +30,12 @@
   gap: 2rem;
 }
 
+.extra-component {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
 .technology {
   box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.25);
   border-radius: 8px;
