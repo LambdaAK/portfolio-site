@@ -11,7 +11,7 @@ export interface ProjectDisplayProps {
   technologies: Technology[],
   github: string,
   features: string[],
-  extraComponents: JSX.Element[]
+  extraComponents: (() => JSX.Element)[]
 }
 
 const ProjectName = (props: { name: string, link: string }) => {
@@ -41,7 +41,7 @@ export interface Technology {
 const TechnologiesUsed = (props: { technologies: Technology[] }) => {
   return (
     <div className="technologies-used">
-      <SectionHeader text="Technologies Used" />
+
       <div className="technologies-used-content">
 
         {props.technologies.map(technology =>
@@ -125,9 +125,11 @@ export default function ProjectDisplay(props: ProjectDisplayProps) {
       <ProjectName name={props.name} link={props.github} />
       <ProjectDescription description={props.description} />
       <TechnologiesUsed technologies={props.technologies} />
-      <Features features={props.features} />
+
       <ProjectDisplayPictures pictures={props.pictures} />
-      {props.extraComponents}
+      {
+        props.extraComponents.map(component => <div className="extra-component">{component()}</div>)
+      }
     </div>
 
   )

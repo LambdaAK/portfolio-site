@@ -35,9 +35,13 @@
   box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.25);
   border-radius: 8px;
   padding: 10px;
-  width: fit-content;
-  height: fit-content;
   margin: auto;
+}
+
+.extra-component {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
 }
 
 .lambdascript-demo-text {
@@ -50,7 +54,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
-  max-width: 50vw;
+  width: fit-content;
   margin-left: auto;
   margin-right: auto;
   box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.25);

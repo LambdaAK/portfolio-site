@@ -1,6 +1,9 @@
+import { motion, useAnimate } from "framer-motion"
 import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDisplay"
 import SectionHeader from "../SectionHeader/SectionHeader"
 import "./Projects.css"
+import { TypeAnimation } from "react-type-animation"
+import { useEffect } from "react"
 
 interface InputOutputPair {
   input: string,
@@ -215,49 +218,84 @@ const demoProps: DemoProps[] = [
 
 ]
 
+
+const demoTexts: (string | number)[] = demoProps.flatMap(demo => {
+  /*
+  demo is a description and a list of input/output pairs
+  for each input/output pair, make a string
+
+  then, make a list fo those strings
+  
+  */
+
+  const inputOutputPairs: (string | number)[] = demo.pairs.flatMap(pair => {
+    return [pair.input + "\n\n" + pair.output, 4000]
+  })
+
+  return inputOutputPairs;
+
+})
+
+
+function sleep(seconds: number): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, seconds * 1000))
+}
+
 const LambdaScriptDemo = () => {
+
+  /*const [phraseIndex, setPhraseIndex] = useState(0)*/
+  const [state, animate] = useAnimate()
+
+
+  const animateFunction = async () => {
+    await animate(state.current, { opacity: 0 }, { duration: 0 })
+    await sleep(2)
+    await animate(state.current, { opacity: 100 }, { duration: 2, ease: "easeInOut" })
+  }
+
+  useEffect(() => {
+    animateFunction()
+  }, [])
+
   return (
-    <>
-      <SectionHeader text="Example Usages" />
-      <div className="lambdascript-demo">
-
-        {
-          demoProps.map(props => {
-            return (
-              <div>
-                <h1 className="ls-ex-desc">
-                  {props.description}
-                </h1>
-
-                <div className="ls-demo-instance">
-                  <h2>Input:</h2>
-                  <h2>Output:</h2>
-                  {
-                    props.pairs.map(pair => {
-                      return (
-                        <>
-                          <pre className="ls-input">
-                            {pair.input}
-                          </pre>
-                          <pre className="ls-output">
-                            {pair.output}
-                          </pre>
-                        </>
-                      )
-                    })
-                  }
-                </div>
-              </div>
-            )
-          })
-
-        }
-      </div>
-    </>
+    <motion.div ref={state}>
+      <motion.pre ref={state}>
+        <TypeAnimation
+          sequence={demoTexts}
+          wrapper="span"
+          speed={70}
+          style={{ fontSize: '2em', display: 'inline-block' }}
+          repeat={Infinity}
+        />
+      </motion.pre >
+    </motion.div>
   )
 }
 
 const projectInfo: ProjectDisplayProps[] = [
+
+  {
+    name: "LambdaScript",
+    pictures: [],
+    description: "Lambdascript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code.",
+    technologies: [
+      {
+        name: "OCaml",
+        icon: "ocaml"
+      }
+    ],
+    github: "https://github.com/LambdaAK/LambdaScript",
+    features: [
+      "Pattern matching",
+      "Type inference",
+      "Higher order functions",
+      "Currying",
+      "Recursive functions",
+      "Anonymous functions",
+      "Closures"
+    ],
+    extraComponents: [LambdaScriptDemo]
+  },
   {
     name: "AlgoSandbox",
     pictures: [
@@ -293,28 +331,6 @@ const projectInfo: ProjectDisplayProps[] = [
       "Responsive design",
     ],
     extraComponents: []
-  },
-  {
-    name: "LambdaScript",
-    pictures: [],
-    description: "Lambdascript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code.",
-    technologies: [
-      {
-        name: "OCaml",
-        icon: "ocaml"
-      }
-    ],
-    github: "https://github.com/LambdaAK/LambdaScript",
-    features: [
-      "Pattern matching",
-      "Type inference",
-      "Higher order functions",
-      "Currying",
-      "Recursive functions",
-      "Anonymous functions",
-      "Closures"
-    ],
-    extraComponents: [LambdaScriptDemo()]
   }
 ]
 
