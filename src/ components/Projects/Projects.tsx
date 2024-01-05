@@ -171,6 +171,47 @@ const demoProps: DemoProps[] = [
         output: "[1, 2, 3, 4, 5, 6, 7, 8]: [Int]"
       }
     ]
+  },
+  {
+    description: "Infinite Sequences as Polymorphic ADT",
+    pairs: [
+      {
+        input: "type Seq a = | Cons (a, Unit -> Seq a)",
+        output: "Seq: * -> *"
+      },
+      {
+        input: `let rec from n = Cons (n, \ () -> from (n + 1))`,
+        output: "from: Int -> Seq Int"
+      },
+      {
+        input: `let hd s =
+        switch s =>
+        | Cons (x, _) -> x
+        end`,
+        output: "hd: Seq a -> a"
+      },
+      {
+        input: `let tl s =
+        switch s =>
+        | Cons (_, f) -> f ()
+        end`,
+        output: "tl: Seq a -> Seq a"
+      },
+      {
+        input: `let rec map f s =
+        switch s =>
+        | Cons (x, g) -> Cons (f x, \ () -> map f (g ()))
+        end`,
+        output: "map: (a -> b) -> Seq a -> Seq b"
+      },
+      {
+        input: `let rec interleave s1 s2 =
+        switch s1 =>
+        | Cons (x, f) -> Cons (x, \ () -> interleave s2 (f ()))
+        end`,
+        output: "interleave: Seq a -> Seq a -> Seq a"
+      }
+    ]
   }
 
 ]
