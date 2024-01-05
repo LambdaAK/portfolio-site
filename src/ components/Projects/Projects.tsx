@@ -5,7 +5,6 @@ import "./Projects.css"
 interface InputOutputPair {
   input: string,
   output: string,
-
 }
 
 interface DemoProps {
