@@ -1,8 +1,6 @@
 import GitHubLink from "../GitHubLink/GitHubLink"
 import "./ProjectDisplay.css"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { useEffect } from "react"
-import SectionHeader from "../SectionHeader/SectionHeader"
+
 
 export interface ProjectDisplayProps {
   name: string,
@@ -56,7 +54,7 @@ const TechnologiesUsed = (props: { technologies: Technology[] }) => {
   )
 }
 
-const Features = (props: { features: string[] }) => {
+/*const Features = (props: { features: string[] }) => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -78,6 +76,9 @@ const Features = (props: { features: string[] }) => {
     })
   }, [])
 
+
+
+
   return (
     <div className="features">
       <h1>Features</h1>
@@ -95,7 +96,7 @@ const Features = (props: { features: string[] }) => {
       </ul>
     </div>
   )
-}
+}*/
 
 const ProjectDisplayPictures = (props: { pictures: string[] }) => {
   return (
