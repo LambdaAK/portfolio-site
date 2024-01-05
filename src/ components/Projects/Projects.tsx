@@ -1,8 +1,11 @@
 import { motion } from "framer-motion"
 import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDisplay"
-import SectionHeader from "../SectionHeader/SectionHeader"
 import "./Projects.css"
 import { TypeAnimation } from "react-type-animation"
+import algosPicture from "./../../../public/readme pictures/algos.png"
+import homePagePicture from "./../../../public/readme pictures/home_page.png"
+import mergeSortPicture from "./../../../public/readme pictures/merge_sort.png"
+import tagsPicture from "./../../../public/readme pictures/tags.png"
 
 interface InputOutputPair {
   input: string,
@@ -277,10 +280,10 @@ const projectInfo: ProjectDisplayProps[] = [
   {
     name: "AlgoSandbox",
     pictures: [
-      "./../../../public/readme pictures/algos.png",
-      "./../../../public/readme pictures/home_page.png",
-      "./../../../public/readme pictures/merge_sort.png",
-      "./../../../public/readme pictures/tags.png"
+      algosPicture,
+      homePagePicture,
+      mergeSortPicture,
+      tagsPicture
     ],
     description: "AlgoSandbox is a powerful tool designed to help you grasp complex algorithms and data structures through visual representation. Whether you're a student, educator, or developer, AlgoSandbox provides an intuitive platform to experiment, learn, and teach algorithms in an engaging way.",
     technologies: [
@@ -317,7 +320,6 @@ export default function Projects() {
   return (
 
     <div id="projects">
-      <SectionHeader text="Projects" />
       {
         projectInfo.map(project =>
           <ProjectDisplay {...project} />
