@@ -9,6 +9,7 @@ import 'react-gallery-carousel/dist/index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import React from 'react'
+import Education from './ components/Education/Education'
 
 export const UserContext = React.createContext({
   num: 0
@@ -49,6 +50,7 @@ function App() {
           <Routes>
             <Route path="/" element={<WelcomeSection />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/education" element={<Education />} />
           </Routes>
         </div>
       </BrowserRouter>
