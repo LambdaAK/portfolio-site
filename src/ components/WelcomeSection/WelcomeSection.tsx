@@ -182,7 +182,7 @@ const WelcomeContent = () => {
   )
 }
 
-const BriefIntro = () => {
+/*const BriefIntro = () => {
   return (
     <div id="brief-intro" className="welcome-element">
       <h1>Hi, I'm Alex.</h1>
@@ -190,7 +190,7 @@ const BriefIntro = () => {
       <h2>Welcome to my website.</h2>
     </div>
   )
-}
+}*/
 
 export default function WelcomeSection() {
 
