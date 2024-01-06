@@ -3,7 +3,7 @@
 }
 
 .project-display {
-  min-height: 100vh;
+  min-height: 75vh;
 }
 
 .project-name {
@@ -18,7 +18,7 @@
   margin-left: 100px;
   margin-right: 100px;
   width: fit-content;
-  font-size: 1.25rem;
+  font-size: 25px;
 }
 
 .technologies-used-content {

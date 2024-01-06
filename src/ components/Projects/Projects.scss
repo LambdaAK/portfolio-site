@@ -10,7 +10,19 @@
 }
 
 .ls-demo {
-  @include shadow;
+  @include color-shadow;
+  background-color: #282b30;
+  min-width: 50vw;
+  min-height: 15vh;
+  color: greenyellow;
+  padding: 20px;
+  border-style: solid;
+}
+
+.ls-demo-text {
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
 }
 
 .ls-pair {

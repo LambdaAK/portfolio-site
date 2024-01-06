@@ -38,8 +38,6 @@ export interface Technology {
 
 const TechnologiesUsed = (props: { technologies: Technology[] }) => {
   return (
-
-
     <div className="technologies-used-content">
 
       {props.technologies.map(technology =>
@@ -49,8 +47,6 @@ const TechnologiesUsed = (props: { technologies: Technology[] }) => {
         </div>
       )}
     </div>
-
-
   )
 }
 

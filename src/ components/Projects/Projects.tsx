@@ -258,13 +258,14 @@ const demoTexts = shuffle(demoTextsFlattened).flatMap(text => [text, 4000])
 const LambdaScriptDemo = () => {
 
   return (
-    <motion.pre>
+    <motion.pre className="ls-demo">
       <TypeAnimation
         sequence={demoTexts}
         wrapper="span"
         speed={85}
         style={{ fontSize: '2em', display: 'inline-block' }}
         repeat={Infinity}
+        className="ls-demo-text"
       />
     </motion.pre >
   )
