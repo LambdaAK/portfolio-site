@@ -7,7 +7,7 @@
   transition: all 0.2s ease-in-out;
   margin-left: 0.5rem;
   &:hover {
-    @include shadow;
+    @include color-shadow-red;
     transform: translateX(10px);
   }
 }

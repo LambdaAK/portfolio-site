@@ -1,14 +1,17 @@
 @import "./../../css/util.scss";
 
 #education {
-
+  height: fit-content;
 }
 
 .college-education {
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
+  margin-bottom: 50px;
+  margin-top: 25px;
 }
+
 
 .college-logo {
   width: 100px;
@@ -19,6 +22,7 @@
 }
 
 .college-header {
+  @include color-shadow;
   display: flex;
   flex-direction: row;
   align-items: space-between;
@@ -39,19 +43,19 @@
 }
 
 .courses {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-left: 150px;
-  margin-right: 150px;
+  display: flex;
+  //grid-template-columns: 1fr;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+
+  gap: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+  
+
 }
 
 .course {
-  display: flex;
-  flex-direction: row;
-  @include shadow-no-padding;
-  gap: 20px;
-  margin-bottom: 20px;
-  padding: 10px;
-
+  font-size: 16px;
+    max-width: 25%;
 }

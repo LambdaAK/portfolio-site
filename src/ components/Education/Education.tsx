@@ -1,21 +1,27 @@
 import "./Education.css"
 import collegeLogo from "./../../../public/logos/Cornell_University_Logo.png"
-
+import hsLogo from "./../../../public/logos/central-bucks-south.png"
 
 
 
 const Course = (props: { number: string, name: string }) => {
   return (
-    <li className="course">
-      <div>{props.number}:  </div>
-      <div>{props.name}</div>
-    </li >
+    <div className="course">
+      <div><span
+        style={
+          {
+            fontWeight: "bold",
+            fontSize: "30px"
+          }
+        }
+      >{props.number}</span>  {props.name}</div>
+    </div >
   )
 }
 
 const CollegeEducation = () => {
   return (
-    <div className="college-education">
+    <div className="college-education hidden">
       <div
         className="college-header"
       >
@@ -28,7 +34,7 @@ const CollegeEducation = () => {
           {
             marginLeft: "auto",
             marginRight: "auto",
-            marginBottom: "20px"
+            marginBottom: "20px",
           }
         }>
           <p>Major: Computer Science, Mathematics</p>
@@ -40,7 +46,7 @@ const CollegeEducation = () => {
         <div className="courses">
           <Course number="CS 2112" name="Honors Object Oriented Design and Data Structures" />
           <Course number="CS 2800" name="Discrete Structures" />
-          <Course number="CS 3110" name="Functional Programming and Data Structures" />
+          <Course number="CS 3110" name="Data Structures and Functional Programming" />
           <Course number="CS 3410" name="Computer System Organization and Programming" />
           <Course number="CS 4820" name="Introduction to Analysis of Algorithms" />
           <Course number="MATH 2210" name="Linear Algebra" />
@@ -54,12 +60,52 @@ const CollegeEducation = () => {
   )
 }
 
+const HighSchoolEducation = () => {
+  return (
+    <div className="college-education hidden">
+      <div
+        className="college-header"
+      >
+        <img src={hsLogo} className="college-logo" />
+        <h1 className="education-header">Central Bucks High School South</h1>
+      </div>
 
+      <div className="education-content">
+        <div style={
+          {
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginBottom: "20px"
+          }
+        }>
+          <p>Date: 2019-2022</p>
+          <p>Grade: 4.32 / 4</p>
+          <p>Applicable Courses: </p>
+        </div>
+        <div className="courses">
+          <Course number={"AP"} name={"Computer Science A"} />
+          <Course number={"AP"} name={"Calculus AB"} />
+          <Course number={"AP"} name={"Calculus BC"} />
+          <Course number={"AP"} name={"Statistics"} />
+          <Course number={"AP"} name={"Physics C : Mechanics"} />
+          <Course number={"AP"} name={"Chemistry"} />
+          <Course number={"AP"} name={"Biology"} />
+          <Course number={"AP"} name={"Microeconomics"} />
+
+        </div>
+
+
+      </div>
+
+    </div >
+  )
+}
 
 export default function Education() {
   return (
     <div id="education">
       <CollegeEducation />
+      <HighSchoolEducation />
     </div>
   )
 }

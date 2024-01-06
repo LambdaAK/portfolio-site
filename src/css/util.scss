@@ -62,8 +62,16 @@ $light-md-background: #E0E0E0;
 
 @mixin color-shadow {
     @include shadow-no-padding;
-    border-radius: 10px; /* Adjust the border-radius according to your design */
+    border-radius: 10px; 
     box-shadow:
-    0 0 5px 0px rgba(22, 127, 239, 0.5),     /* Blue shadow with lower intensity */
-    0 0 15px 5px rgba(107, 241, 174, 0.7);    /* Light green tinted shadow with higher intensity */
+    0 0 5px 0px rgba(22, 127, 239, 0.5),   
+    0 0 15px 5px rgba(107, 241, 174, 0.7);   
+}
+
+@mixin color-shadow-red {
+    @include shadow-no-padding;
+    border-radius: 10px;
+    box-shadow:
+    0 0 5px 0px rgba(239, 22, 22, 0.5),    
+    0 0 15px 5px rgba(241, 107, 107, 0.7);   
 }
