@@ -1,16 +1,35 @@
 @import "./../../css/util.scss";
 
 #welcome {
-  height: 100vh;
-  width: 100vw;
-  margin-top: 25vh;
+  margin-top: 10vh;
+  height: fit-content;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 50px;
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    gap: 0px;
+  }
+
+}
+
+#brief-intro {
+  @include shadow-no-padding;
+}
+
+.welcome-element {
+  margin: auto;
 }
 
 #welcome-content {
   height: fit-content;
-  margin-left: 12vw;
-  margin-right: 12vw;
-  @include shadow;
+
+  @include shadow-no-padding;;
+  width: min(500px, 75vw);
+
+  border-radius: 10px; /* Adjust the border-radius according to your design */
+ 
 }
 
 .first-welcome-line {
@@ -40,4 +59,10 @@
   width: fit-content;
   transition: all 0.5s ease-in-out;
   color: $slate;
+}
+
+.portrait {
+  @include shadow-no-padding;
+  width: 500px;
+  height: 500px;
 }

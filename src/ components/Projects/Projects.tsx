@@ -47,20 +47,20 @@ const demoProps: DemoProps[] = [
   | None -> None
   | Just v -> f v
   end`,
-        output: "bind: Option a -> (a -> Option b) -> Option b"
+        output: "(>>=): Option a -> (a -> Option b) -> Option b"
       },
       {
         input:
-          `(Just 42) >>= (fun x -> Just (x + 1))
-          >>= (fun x -> Just (x * x))
+          `(Just 42) >>= (\\ x -> Just (x + 1))
+          >>= (\\ x -> Just (x * x))
           `,
         output: "Just (86): Option Int"
       },
       {
         input:
           `None
-    >>= (fun x -> Just (x + 1))
-    >>= (fun x -> Just (x * x))
+    >>= (\\ x -> Just (x + 1))
+    >>= (\\ x -> Just (x * x))
           `,
         output: "None: Option Int"
       }
@@ -122,7 +122,7 @@ const demoProps: DemoProps[] = [
       },
       {
         input:
-          `let rec lift f tree =
+          `let rec map_tree f tree =
   switch tree =>
   | Leaf -> Leaf
   | Node (v, l, r) ->
@@ -220,8 +220,23 @@ const demoProps: DemoProps[] = [
 
 ]
 
+const shuffle = (array: any[]) => {
+  let currentIndex = array.length, randomIndex;
 
-const demoTexts: (string | number)[] = demoProps.flatMap(demo => {
+  while (0 !== currentIndex) {
+
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+
+const demoTextsFlattened: (string | number)[] = demoProps.map(demo => {
   /*
   demo is a description and a list of input/output pairs
   for each input/output pair, make a string
@@ -230,13 +245,15 @@ const demoTexts: (string | number)[] = demoProps.flatMap(demo => {
   
   */
 
-  const inputOutputPairs: (string | number)[] = demo.pairs.flatMap(pair => {
-    return [pair.input + "\n\n" + pair.output, 4000]
+  const inputOutputPairs: (string | number)[] = demo.pairs.map(pair => {
+    return pair.input + "\n\n" + pair.output
   })
 
   return inputOutputPairs;
 
-})
+}).flat()
+
+const demoTexts = shuffle(demoTextsFlattened).flatMap(text => [text, 4000])
 
 const LambdaScriptDemo = () => {
 
@@ -245,7 +262,7 @@ const LambdaScriptDemo = () => {
       <TypeAnimation
         sequence={demoTexts}
         wrapper="span"
-        speed={70}
+        speed={85}
         style={{ fontSize: '2em', display: 'inline-block' }}
         repeat={Infinity}
       />
@@ -258,7 +275,7 @@ const projectInfo: ProjectDisplayProps[] = [
   {
     name: "LambdaScript",
     pictures: [],
-    description: "Lambdascript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code.",
+    description: "LambdaScript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code.",
     technologies: [
       {
         name: "OCaml",
@@ -282,10 +299,9 @@ const projectInfo: ProjectDisplayProps[] = [
     pictures: [
       algosPicture,
       homePagePicture,
-      mergeSortPicture,
-      tagsPicture
+      tagsPicture, mergeSortPicture
     ],
-    description: "AlgoSandbox is a powerful tool designed to help you grasp complex algorithms and data structures through visual representation. Whether you're a student, educator, or developer, AlgoSandbox provides an intuitive platform to experiment, learn, and teach algorithms in an engaging way.",
+    description: "AlgoSandbox is a powerful tool designed to help you grasp complex algorithms and data structures through visual representation.",
     technologies: [
       {
         name: "React",

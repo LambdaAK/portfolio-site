@@ -125,6 +125,8 @@ export default function ProjectDisplay(props: ProjectDisplayProps) {
     <div className="project-display hidden">
       <ProjectName name={props.name} link={props.github} />
       <ProjectDescription description={props.description} />
+      <br />
+
       <TechnologiesUsed technologies={props.technologies} />
 
       <ProjectDisplayPictures pictures={props.pictures} />

@@ -4,6 +4,8 @@ import "./WelcomeSection.css"
 import { motion, useAnimate } from "framer-motion"
 import { TypeAnimation } from "react-type-animation"
 
+import me from "./../../../public/me.jpg"
+
 
 function sleep(seconds: number): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, seconds * 1000))
@@ -43,7 +45,7 @@ const ImA = () => {
       <h2 className="second-welcome-line">
         I'm a
       </h2>
-      <motion.div ref={state} className="second-welcome-line">
+      <motion.pre ref={state} className="second-welcome-line">
         <TypeAnimation
           sequence={[
             'Software Engineer',
@@ -66,7 +68,7 @@ const ImA = () => {
           style={{ fontSize: '2em', display: 'inline-block' }}
           repeat={Infinity}
         />
-      </motion.div >
+      </motion.pre >
     </motion.div>
   )
 }
@@ -148,6 +150,48 @@ const ImAlex = () => {
   )
 }
 
+const Portrait = () => {
+  const [scope, animate] = useAnimate()
+
+  const animateFunction = async () => {
+    await animate(scope.current, { opacity: 0 }, { duration: 0 })
+    await animate(scope.current, { opacity: 100 }, { duration: 0.5, ease: "easeInOut" })
+
+  }
+
+  useEffect(() => {
+    animateFunction()
+  }, [])
+  return (
+
+    <motion.img src={me} alt="" className="portrait welcome-element" ref={scope} />
+
+  )
+}
+
+const WelcomeContent = () => {
+  return (
+    <div id="welcome-content" className="welcome-element">
+      <div className="welcome-text">
+        <Hi />
+        <ImAlex />
+        <ImA />
+        <Welcome />
+      </div>
+    </div>
+  )
+}
+
+const BriefIntro = () => {
+  return (
+    <div id="brief-intro" className="welcome-element">
+      <h1>Hi, I'm Alex.</h1>
+      <h2>I'm a full-stack web developer, software engineer, machine learning enthusiast, and PL enthusiast.</h2>
+      <h2>Welcome to my website.</h2>
+    </div>
+  )
+}
+
 export default function WelcomeSection() {
 
   useEffect(() => {
@@ -156,14 +200,9 @@ export default function WelcomeSection() {
 
   return (
     <motion.div id="welcome">
-      <div id="welcome-content">
-        <div className="welcome-text">
-          <Hi />
-          <ImAlex />
-          <ImA />
-          <Welcome />
-        </div>
-      </div>
+      <Portrait />
+      <WelcomeContent />
+
     </motion.div>
   )
 }

@@ -15,8 +15,8 @@
 }
 
 .project-description {
-  margin-left: 12vw;
-  margin-right: 12vw;
+  margin-left: auto;
+  margin-right: auto;
   width: fit-content;
   font-size: 1.25rem;
 }
@@ -52,11 +52,10 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 10px;
+  gap: 50px;
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
-  margin-top: 100px;
 }
 @media (min-width: 1200px) {
   .project-display-pictures {
@@ -90,6 +89,15 @@
   box-shadow: 0 30px 30px hsla(0, 0%, 0%, 0.25);
   border-radius: 8px;
   transition: all 0.25s ease-in-out;
+  margin-top: auto;
+  margin-bottom: auto;
+  box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.25);
+  border-radius: 8px;
+  border-radius: 10px; /* Adjust the border-radius according to your design */
+  box-shadow: 0 0 5px 0px rgba(22, 127, 239, 0.5), 0 0 15px 5px rgba(107, 241, 174, 0.7); /* Light green tinted shadow with higher intensity */
+}
+.project-picture:hover {
+  transform: scale(1.05);
 }
 
 /*# sourceMappingURL=ProjectDisplay.css.map */

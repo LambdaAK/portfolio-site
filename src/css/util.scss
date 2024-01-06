@@ -39,13 +39,18 @@ $slate: #5e5e65;
 $light-background: #EDEDED;
 $light-md-background: #E0E0E0;
 
-@mixin shadow {
-    //box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
+
+
+@mixin shadow-no-padding {
     box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.25);
     border-radius: 8px;
-    padding: 10px;
 }
 
+@mixin shadow {
+    //box-shadow: 0px 0px 10px 0px rgba(0,0,0,1);
+    @include shadow-no-padding;
+    padding: 10px;
+}
 @mixin shadow-no-shadow {
     border-radius: 8px;
     padding: 10px;
@@ -53,4 +58,12 @@ $light-md-background: #E0E0E0;
 
 .github-button {
     color: #f5f5f5;
+}
+
+@mixin color-shadow {
+    @include shadow-no-padding;
+    border-radius: 10px; /* Adjust the border-radius according to your design */
+    box-shadow:
+    0 0 5px 0px rgba(22, 127, 239, 0.5),     /* Blue shadow with lower intensity */
+    0 0 15px 5px rgba(107, 241, 174, 0.7);    /* Light green tinted shadow with higher intensity */
 }
