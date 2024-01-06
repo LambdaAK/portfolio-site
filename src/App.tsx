@@ -10,6 +10,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import React from 'react'
 import Education from './ components/Education/Education'
+import Experience from './ components/Experience/Experience'
 
 export const UserContext = React.createContext({
   num: 0
@@ -51,6 +52,7 @@ function App() {
             <Route path="/" element={<WelcomeSection />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/education" element={<Education />} />
+            <Route path="/experience" element={<Experience />} />
           </Routes>
         </div>
       </BrowserRouter>
