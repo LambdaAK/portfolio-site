@@ -40,10 +40,8 @@ const CMSXExperience = () => {
       <div className="responsibilities">
         Responsibilities:
         <ul>
-          <li>Developed a full stack web application for Cornell University's Computer Science Department to manage courses, assignments, and grades</li>
-          <li>Implemented a REST API using Node.js, Express.js, and MongoDB for the backend</li>
-          <li>Designed and developed a frontend using React and TypeScript</li>
-          <li>Deployed the application using Docker, Kubernetes, and AWS</li>
+          <li>Developed a system where professors and TAs can use a spreadsheet to efficiently grant extensions to students</li>
+          <li>Testing and reviewing code</li>
         </ul>
       </div>
     </div>
