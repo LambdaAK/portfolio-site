@@ -4,6 +4,7 @@
 
 .project-display {
   min-height: 75vh;
+  margin-bottom: 100px;
 }
 
 .project-name {
@@ -58,7 +59,7 @@
   width: fit-content;
   margin-top: 50px;
 }
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .project-display-pictures {
     grid-template-columns: 1fr 1fr;
     margin-top: 0px;

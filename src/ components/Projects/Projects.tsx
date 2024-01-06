@@ -2,10 +2,18 @@ import { motion } from "framer-motion"
 import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDisplay"
 import "./Projects.css"
 import { TypeAnimation } from "react-type-animation"
-import algosPicture from "./../../../public/readme pictures/algos.png"
-import homePagePicture from "./../../../public/readme pictures/home_page.png"
-import mergeSortPicture from "./../../../public/readme pictures/merge_sort.png"
-import tagsPicture from "./../../../public/readme pictures/tags.png"
+
+import algosPicture from "./../../../public/AlgoSandbox pictures/algos.png"
+import homePagePicture from "./../../../public/AlgoSandbox pictures/home_page.png"
+import mergeSortPicture from "./../../../public/AlgoSandbox pictures/merge_sort.png"
+import tagsPicture from "./../../../public/AlgoSandbox pictures/tags.png"
+
+import hsHome from "./../../../public/HabitStack pictures/home.png"
+import hsHabitStacks from "./../../../public/HabitStack pictures/stacks.png"
+import hsHabitCreator from "./../../../public/HabitStack pictures/good_habits3.png"
+import hsServer from "./../../../public/HabitStack pictures/servers.png"
+import hsTasks from "./../../../public/HabitStack pictures/tasks.png"
+import hsStacks2 from "./../../../public/HabitStack pictures/stacks2.png"
 
 interface InputOutputPair {
   input: string,
@@ -300,7 +308,8 @@ const projectInfo: ProjectDisplayProps[] = [
     pictures: [
       algosPicture,
       homePagePicture,
-      tagsPicture, mergeSortPicture
+      tagsPicture,
+      mergeSortPicture,
     ],
     description: "AlgoSandbox is a powerful tool designed to help you grasp complex algorithms and data structures through visual representation.",
     technologies: [
@@ -328,6 +337,51 @@ const projectInfo: ProjectDisplayProps[] = [
       "Home page that's searchable by tags",
       "Responsive design",
     ],
+    extraComponents: []
+  },
+  {
+    name: "HabitStack",
+    pictures: [
+      hsHabitStacks,
+      hsHabitCreator,
+      hsHome,
+      hsServer,
+      hsStacks2,
+      hsTasks
+    ],
+    description: "HabitStack is a habit tracker that helps you build good habits and break bad ones. It features chat functionality between users, a calendar to track your progress, and a habit stack creator for implementing habits into your daily routine.",
+    technologies: [
+      {
+        name: "React",
+        icon: "react"
+      },
+      {
+        name: "TypeScript",
+        icon: "typescript"
+      },
+      {
+        name: "JavaScript",
+        icon: "javascript"
+      },
+      {
+        name: "SASS",
+        icon: "sass"
+      },
+      {
+        name: "Framer-Motion",
+        icon: "css3"
+      },
+      {
+        name: "Express.js",
+        icon: "JavaScript"
+      },
+      {
+        name: "Firebase",
+        icon: "firebase"
+      }
+    ],
+    github: "",
+    features: [],
     extraComponents: []
   }
 ]

@@ -3,9 +3,8 @@
 
 .project-display {
   min-height: 75vh;
+  margin-bottom: 100px;
 }
-
-
 
 .project-name {
 
@@ -62,10 +61,12 @@
   margin-right: auto;
   width: fit-content;
   margin-top: 50px;
-  @include xl {
+  
+  @include lg {
     grid-template-columns: 1fr 1fr;
     margin-top: 0px;
   }
+
 }
 
 .hidden {
