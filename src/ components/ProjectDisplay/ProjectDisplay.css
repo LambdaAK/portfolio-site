@@ -15,8 +15,8 @@
 }
 
 .project-description {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 100px;
+  margin-right: 100px;
   width: fit-content;
   font-size: 1.25rem;
 }
@@ -56,10 +56,12 @@
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
+  margin-top: 50px;
 }
 @media (min-width: 1200px) {
   .project-display-pictures {
     grid-template-columns: 1fr 1fr;
+    margin-top: 0px;
   }
 }
 

@@ -38,18 +38,18 @@ export interface Technology {
 
 const TechnologiesUsed = (props: { technologies: Technology[] }) => {
   return (
-    <div className="technologies-used">
 
-      <div className="technologies-used-content">
 
-        {props.technologies.map(technology =>
-          <div className="technology">
-            {technology.name}
-            <i className={`devicon-${technology.icon}-original`}></i>
-          </div>
-        )}
-      </div>
+    <div className="technologies-used-content">
+
+      {props.technologies.map(technology =>
+        <div className="technology">
+          {technology.name}
+          <i className={`devicon-${technology.icon}-original`}></i>
+        </div>
+      )}
     </div>
+
 
   )
 }

@@ -5,6 +5,8 @@
   min-height: 100vh;
 }
 
+
+
 .project-name {
 
   margin-left: auto;
@@ -15,8 +17,8 @@
 }
 
 .project-description {
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 100px;
+  margin-right: 100px;
 
   width: fit-content;
   font-size: 1.25rem;
@@ -30,6 +32,7 @@
   margin-left: auto;
   margin-right: auto;
   gap: 2rem;
+
 
 }
 
@@ -59,9 +62,10 @@
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
-
+  margin-top: 50px;
   @include xl {
     grid-template-columns: 1fr 1fr;
+    margin-top: 0px;
   }
 }
 
