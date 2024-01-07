@@ -93,6 +93,16 @@ interface NavProps {
   appAnimate: any,
 }
 
+const ContactMe = () => {
+  return (
+    <div className="contact-me">
+      <div className="contact-me-header">Contact Me: </div>
+      <EmailButton />
+      <GitHubButton />
+      <LinkedInButton />
+    </div>
+  )
+}
 
 export default function Nav(props: NavProps) {
 
@@ -115,9 +125,7 @@ export default function Nav(props: NavProps) {
       <NavButton text="Projects" link="/projects" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
       <NavButton text="Education" link="/education" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
       <NavButton text="Experience" link="/experience" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
-      <EmailButton />
-      <GitHubButton />
-      <LinkedInButton />
+      <ContactMe />
     </m.div>
   )
 }

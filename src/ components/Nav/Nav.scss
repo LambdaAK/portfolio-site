@@ -20,6 +20,8 @@
     background-color: $background-color-2;
     color: white;
   }
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .email-button {
@@ -33,3 +35,18 @@
     @include shadow;
   }
 }
+
+
+.contact-me {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.contact-me-header {
+  height: fit-content;
+  width: fit-content;
+  align-self: center;
+  margin-right: 10px;
+}
+
