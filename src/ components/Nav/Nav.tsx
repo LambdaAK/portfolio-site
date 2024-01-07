@@ -34,9 +34,6 @@ const NavButton = (props: navButtonProps) => {
           setTimeout(() => {
             window.location.href = props.link
           }, 200)
-
-
-
         }
       }
     >

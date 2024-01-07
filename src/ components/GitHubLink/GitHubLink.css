@@ -5,8 +5,8 @@
 .github-link {
   border-radius: 8px;
   padding: 10px;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   transition: all 0.2s ease-in-out;
   margin-left: 0.5rem;
 }
@@ -16,6 +16,8 @@
   border-radius: 10px;
   box-shadow: 0 0 5px 0px rgba(239, 22, 22, 0.5), 0 0 15px 5px rgba(241, 107, 107, 0.7);
   transform: translateX(10px);
+  color: white;
+  background-color: black;
 }
 
 /*# sourceMappingURL=GitHubLink.css.map */

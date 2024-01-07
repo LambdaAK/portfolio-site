@@ -14,12 +14,20 @@ const Skill = (props: { name: string }) => {
 const CMSXExperience = () => {
   return (
     <div className="experience-instance">
-      <div className="experience-instance-header">
-        <img src={cornellLogo} alt="" className="experience-logo" />
-        <div className="employer">Cornell Computer Science Course Management System X (CMSX)</div>
+      <div className="cursor-on-hover">
+        <div className="experience-instance-header">
+          <img src={cornellLogo} alt="" className="experience-logo" />
+          <div className="employer"
+            onClick={() => {
+              window.open("https://www.cs.cornell.edu/projects/cms/cmsx/")
+
+            }}
+          >Cornell Computer Science Course Management System X (CMSX)</div>
+        </div>
+
+        <div className="position-name">Full Stack Software Engineer</div>
       </div>
 
-      <div className="position-name">Full Stack Software Engineer</div>
       <div className="date">
         Aug 2023 - Present
       </div>
@@ -51,12 +59,19 @@ const CMSXExperience = () => {
 const TAExperience = () => {
   return (
     <div className="experience-instance">
-      <div className="experience-instance-header">
-        <img src={cornellLogo} alt="" className="experience-logo" />
-        <div className="employer">Cornell Bowers CIS</div>
+      <div className="cursor-on-hover"
+        onClick={() => {
+          window.open("https://cis.cornell.edu/")
+        }}
+      >
+        <div className="experience-instance-header">
+          <img src={cornellLogo} alt="" className="experience-logo" />
+          <div className="employer">Cornell Bowers CIS</div>
+        </div>
+
+        <div className="position-name">Teaching Assistant</div>
       </div>
 
-      <div className="position-name">Teaching Assistant</div>
       <div className="date">
         Aug 2023 - Present
       </div>

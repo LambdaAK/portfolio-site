@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../css/util.scss","GitHubLink.scss"],"names":[],"mappings":"AAyDA;EACI;;;ACxDJ;EDmDI;EACA;EClDF;EACA;EACA;EACA;;AACA;EDmCE;EACA;EA2BA;EACA,YACA;EC/DA","file":"GitHubLink.css"}
+{"version":3,"sourceRoot":"","sources":["../../css/util.scss","GitHubLink.scss"],"names":[],"mappings":"AAyDA;EACI;;;ACxDJ;EDmDI;EACA;EClDF;EACA;EACA;EACA;;AACA;EDmCE;EACA;EA2BA;EACA,YACA;EC/DA;EACA;EACA","file":"GitHubLink.css"}

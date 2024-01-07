@@ -5,12 +5,23 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
+  margin-bottom: 120px;
+
 }
 
 .experience-instance-header {
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
+}
+
+.cursor-on-hover {
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    cursor: pointer;
+    color: #3498db;
+  }
+
 }
 
 .experience-logo {

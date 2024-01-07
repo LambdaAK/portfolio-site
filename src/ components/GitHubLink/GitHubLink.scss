@@ -2,12 +2,14 @@
 
 .github-link {
   @include shadow-no-shadow;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   transition: all 0.2s ease-in-out;
   margin-left: 0.5rem;
   &:hover {
     @include color-shadow-red;
     transform: translateX(10px);
+    color: white;
+    background-color: black;
   }
 }
