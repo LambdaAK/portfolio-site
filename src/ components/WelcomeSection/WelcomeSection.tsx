@@ -192,6 +192,7 @@ const WelcomeContent = () => {
   )
 }*/
 
+
 export default function WelcomeSection() {
 
   useEffect(() => {
@@ -202,6 +203,7 @@ export default function WelcomeSection() {
     <motion.div id="welcome">
       <Portrait />
       <WelcomeContent />
+
 
     </motion.div>
   )

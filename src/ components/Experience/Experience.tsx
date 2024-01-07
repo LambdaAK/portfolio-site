@@ -92,11 +92,56 @@ const TAExperience = () => {
     </div>
   )
 }
+/*
+const StaplesExperience = () => {
+  return (
+    <div className="experience-instance">
+      <div className="experience-instance-header">
+        <img src={cornellLogo} alt="" className="experience-logo" />
+        <div className="employer">Cornell Bowers CIS</div>
+      </div>
+
+      <div className="position-name">Teaching Assistant</div>
+      <div className="date">
+        Aug 2023 - Present
+      </div>
+      <div style={
+        {
+          display: "flex",
+          flexDirection: "column",
+        }
+      }>
+        <div className="skills-header">Skills: </div>
+        <div className="skills">
+
+          <Skill name={"OCaml"} />
+          <Skill name={"Teaching"} />
+          <Skill name={"Grading"} />
+          <Skill name={"Leadership"} />
+
+        </div>
+      </div>
+
+      <div className="skills-header"></div>
+      <div className="responsibilities">
+        Responsibilities:
+        <ul>
+          <li>Facilitating office hours to help with assignments and exam preparation</li>
+          <li>Grading homework assignments and exams</li>
+          <li>Leading recitations</li>
+          <li>Managing small groups of students in completing a final project</li>
+
+
+        </ul>
+      </div>
+    </div>
+  )
+}*/
 
 
 export default function Experience() {
   return (
-    <div className="hidden">
+    <div className="">
       <CMSXExperience />
       <TAExperience />
     </div>

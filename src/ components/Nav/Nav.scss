@@ -6,8 +6,6 @@
   margin-right: auto;
   justify-content: space-evenly;
   background-color: $light-background;
-  transition: all 0.5 ease-in-out;
-  opacity: 0; // will change to 1 after the animation
 }
 
 .nav-button {
@@ -17,8 +15,21 @@
   transition: all 0.5s ease-in-out;
 
   &:hover {
-    @include shadow;
+    @include color-shadow;
     cursor: pointer;
-    background-color: $light-md-background
+    background-color: $background-color-2;
+    color: white;
+  }
+}
+
+.email-button {
+  width: fit-content;
+  height: fit-content;
+  align-self: center;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    @include shadow;
   }
 }

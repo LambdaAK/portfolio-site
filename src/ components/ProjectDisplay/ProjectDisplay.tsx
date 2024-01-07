@@ -118,7 +118,7 @@ const ProjectDisplayPictures = (props: { pictures: string[] }) => {
 export default function ProjectDisplay(props: ProjectDisplayProps) {
 
   return (
-    <div className="project-display hidden">
+    <div className="project-display">
       <ProjectName name={props.name} link={props.github} />
       <ProjectDescription description={props.description} />
       <br />

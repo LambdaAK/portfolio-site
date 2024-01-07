@@ -21,7 +21,7 @@ const Course = (props: { number: string, name: string }) => {
 
 const CollegeEducation = () => {
   return (
-    <div className="college-education hidden">
+    <div className="college-education">
       <div
         className="college-header"
       >
@@ -62,7 +62,7 @@ const CollegeEducation = () => {
 
 const HighSchoolEducation = () => {
   return (
-    <div className="college-education hidden">
+    <div className="college-education">
       <div
         className="college-header"
       >

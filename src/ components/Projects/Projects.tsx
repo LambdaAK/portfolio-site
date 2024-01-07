@@ -192,7 +192,7 @@ const demoProps: DemoProps[] = [
         output: "Seq: * -> *"
       },
       {
-        input: `let rec from n = Cons (n, \ () -> from (n + 1))`,
+        input: `let rec from n = Cons (n, \\ () -> from (n + 1))`,
         output: "from: Int -> Seq Int"
       },
       {
@@ -212,14 +212,14 @@ const demoProps: DemoProps[] = [
       {
         input: `let rec map f s =
         switch s =>
-        | Cons (x, g) -> Cons (f x, \ () -> map f (g ()))
+        | Cons (x, g) -> Cons (f x, \\ () -> map f (g ()))
         end`,
         output: "map: (a -> b) -> Seq a -> Seq b"
       },
       {
         input: `let rec interleave s1 s2 =
         switch s1 =>
-        | Cons (x, f) -> Cons (x, \ () -> interleave s2 (f ()))
+        | Cons (x, f) -> Cons (x, \\ () -> interleave s2 (f ()))
         end`,
         output: "interleave: Seq a -> Seq a -> Seq a"
       }

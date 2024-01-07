@@ -5,58 +5,47 @@ import WelcomeSection from './ components/WelcomeSection/WelcomeSection'
 
 import { useEffect } from 'react'
 
+import { motion as m, useAnimate } from "framer-motion"
+
 import 'react-gallery-carousel/dist/index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import React from 'react'
 import Education from './ components/Education/Education'
 import Experience from './ components/Experience/Experience'
 
-export const UserContext = React.createContext({
-  num: 0
-})
-
-export const AnimationFunctionContext = React.createContext({
-  WelcomeAnimationFunction: () => { }
-})
 
 function App() {
 
   // get the number state from redux
 
+  const [state, animate] = useAnimate()
+
+  const fadeInAnimate = async () => {
+    await animate(state.current, { opacity: 0, x: -200 }, { duration: 0 })
+    await animate(state.current, { opacity: 1, x: 0 }, { duration: 1, ease: "easeInOut" })
+  }
+
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show")
-        }
-        else {
-          entry.target.classList.remove("show")
-        }
-      })
-    })
-
-    const hidden = document.querySelectorAll(".hidden")
-
-    hidden.forEach(e => {
-      observer.observe(e)
-    })
+    fadeInAnimate()
   }, [])
 
   return (
     <>
+      <Nav appState={state} appAnimate={animate} />
       <BrowserRouter>
         <div id="app">
-          <Nav />
-          <Routes>
-            <Route path="/" element={<WelcomeSection />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/education" element={<Education />} />
-            <Route path="/experience" element={<Experience />} />
-          </Routes>
+          <m.div id="app-no-nav" ref={state}>
+            <Routes>
+              <Route path="/" element={<WelcomeSection />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/experience" element={<Experience />} />
+            </Routes>
+          </m.div>
         </div>
       </BrowserRouter>
     </>
+
   )
 }
 
