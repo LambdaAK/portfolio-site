@@ -5,6 +5,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { motion as m } from "framer-motion"
+import resume from "./../../../public/resume.pdf"
 
 interface navButtonProps {
   text: string,
@@ -101,6 +102,16 @@ const ContactMe = () => {
   )
 }
 
+const downloadResume = () => {
+
+  const link = document.createElement('a')
+  link.href = resume
+  link.download = 'AlexanderKozikResume.pdf'
+  document.body.appendChild(link)
+  link.click()
+  document.body.removeChild(link)
+}
+
 export default function Nav(props: NavProps) {
 
   const [scope, animate] = useAnimate()
@@ -122,6 +133,11 @@ export default function Nav(props: NavProps) {
       <NavButton text="Projects" link="/projects" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
       <NavButton text="Education" link="/education" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
       <NavButton text="Experience" link="/experience" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
+      <div className="nav-button"
+        onClick={downloadResume}
+      >
+        Resume
+      </div>
       <ContactMe />
     </m.div>
   )
