@@ -1,6 +1,6 @@
 import "./Experience.css"
 import cornellLogo from "./../../../public/logos/Cornell_University_Logo.png"
-
+import staplesLogo from "./../../../public/logos/staples-logo.png"
 
 
 const Skill = (props: { name: string }) => {
@@ -92,18 +92,18 @@ const TAExperience = () => {
     </div>
   )
 }
-/*
+
 const StaplesExperience = () => {
   return (
     <div className="experience-instance">
       <div className="experience-instance-header">
-        <img src={cornellLogo} alt="" className="experience-logo" />
-        <div className="employer">Cornell Bowers CIS</div>
+        <img src={staplesLogo} alt="" className="experience-logo" />
+        <div className="employer">Staples</div>
       </div>
 
-      <div className="position-name">Teaching Assistant</div>
+      <div className="position-name">Sales Associate</div>
       <div className="date">
-        Aug 2023 - Present
+        Jul 2021 - Sep 2021
       </div>
       <div style={
         {
@@ -114,11 +114,9 @@ const StaplesExperience = () => {
         <div className="skills-header">Skills: </div>
         <div className="skills">
 
-          <Skill name={"OCaml"} />
-          <Skill name={"Teaching"} />
-          <Skill name={"Grading"} />
-          <Skill name={"Leadership"} />
-
+          <Skill name={"Casheering"} />
+          <Skill name={"Supplies Stocking"} />
+          <Skill name={"Sales"} />
         </div>
       </div>
 
@@ -126,17 +124,14 @@ const StaplesExperience = () => {
       <div className="responsibilities">
         Responsibilities:
         <ul>
-          <li>Facilitating office hours to help with assignments and exam preparation</li>
-          <li>Grading homework assignments and exams</li>
-          <li>Leading recitations</li>
-          <li>Managing small groups of students in completing a final project</li>
-
-
+          <li>Casheering</li>
+          <li>Stocking office supplies</li>
+          <li>Demonstrated the ability to work quickly and efficiently</li>
         </ul>
       </div>
     </div>
   )
-}*/
+}
 
 
 export default function Experience() {
@@ -144,6 +139,7 @@ export default function Experience() {
     <div className="">
       <CMSXExperience />
       <TAExperience />
+      <StaplesExperience />
     </div>
   )
 }
