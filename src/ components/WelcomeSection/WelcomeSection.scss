@@ -1,16 +1,13 @@
 @import "./../../css/util.scss";
 
 #welcome {
-  margin-top: 10vh;
+  margin-top: 20px;
   height: fit-content;
-  display: grid;
   grid-template-columns: 1fr;
   gap: 50px;
-
-  @include lg {
-    grid-template-columns: 1fr 1fr;
-    gap: 0px;
-  }
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
 
 }
 
@@ -24,12 +21,10 @@
 
 #welcome-content {
   height: fit-content;
-
-  @include shadow-no-padding;;
-  width: min(500px, 75vw);
-
+  @include shadow-no-padding;
+  width: 500px;
   border-radius: 10px; /* Adjust the border-radius according to your design */
- 
+  
 }
 
 .first-welcome-line {
@@ -65,4 +60,49 @@
   @include shadow-no-padding;
   width: 500px;
   height: 500px;
+  flex: 0 0 200px;
+}
+
+.first-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+
+  @include xl {
+    flex-direction: row;
+  }
+
+}
+
+.second-container {
+  display: flex;
+  flex-direction: column;
+
+  @include lg {
+    flex-direction: row;
+  }
+
+  @include xl {
+    flex-direction: column;
+  }
+
+}
+
+.intro {
+  @include shadow-no-padding;
+  font-size: 30px;
+  width: 500px;;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include lg {
+    width: 92%;
+  }
+
+  @include xl {
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
 }

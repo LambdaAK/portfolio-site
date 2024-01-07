@@ -91,7 +91,7 @@ const Welcome = () => {
     <motion.div
       ref={scope}
     >
-      <h2 className="third-welcome-line">Welcome to my website.</h2>
+
     </motion.div>
   )
 }
@@ -172,7 +172,7 @@ const Portrait = () => {
 const WelcomeContent = () => {
   return (
     <div id="welcome-content" className="welcome-element">
-      <div className="welcome-text">
+      <div>
         <Hi />
         <ImAlex />
         <ImA />
@@ -193,6 +193,15 @@ const WelcomeContent = () => {
 }*/
 
 
+const intro = [
+  `Hi there! I'm Alex. I'm currently a student at Cornell University studying Computer Science and Mathematics.`,
+  `I am a software engineer at CMSX, where I use Java and React to improve a course management system used by over 8000 students every year.`,
+  `I am also a teaching assistant for CS 3110 (Data Stuctures and Functional Programming), where I share my love for OCaml and functional programming with students.`,
+  `I am passionate about web development, programming languages, machine learning.`,
+  `Welcome to my website!`
+
+]
+
 export default function WelcomeSection() {
 
   useEffect(() => {
@@ -201,9 +210,25 @@ export default function WelcomeSection() {
 
   return (
     <motion.div id="welcome">
-      <Portrait />
-      <WelcomeContent />
+      <div className="first-container">
+        <div className="second-container">
+          <Portrait />
+          <WelcomeContent />
+        </div>
+        <div className="intro">
+          {
+            intro.map(line => {
+              return (
+                <div>
+                  <p>{line}</p>
+                </div>
+              )
+            })
+          }
 
+        </div>
+
+      </div>
 
     </motion.div>
   )
