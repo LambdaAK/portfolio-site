@@ -349,6 +349,31 @@ const projectInfo: ProjectDisplayProps[] = [
     ],
     extraComponents: []
   },
+
+  {
+    name: "Critter World",
+    pictures: [
+      critterWorldRecording1,
+      spiralCritter,
+      critterWorldTitle,
+      critterWorldCode,
+
+    ],
+    description: "Critter World is a game where you can create your own critters and watch them compete against each other. The critters are written in a custom language called CritterScript, which is a subset of OCaml.",
+    technologies: [
+      {
+        name: "Java",
+        icon: "java"
+      },
+      {
+        name: "JavaFX",
+        icon: "Java"
+      }
+    ],
+    github: "",
+    features: [],
+    extraComponents: []
+  },
   {
     name: "HabitStack",
     pictures: [
@@ -388,30 +413,6 @@ const projectInfo: ProjectDisplayProps[] = [
       {
         name: "Firebase",
         icon: "firebase"
-      }
-    ],
-    github: "",
-    features: [],
-    extraComponents: []
-  },
-  {
-    name: "Critter World",
-    pictures: [
-      critterWorldRecording1,
-      spiralCritter,
-      critterWorldTitle,
-      critterWorldCode,
-
-    ],
-    description: "Critter World is a game where you can create your own critters and watch them compete against each other. The critters are written in a custom language called CritterScript, which is a subset of OCaml.",
-    technologies: [
-      {
-        name: "Java",
-        icon: "java"
-      },
-      {
-        name: "JavaFX",
-        icon: "Java"
       }
     ],
     github: "",

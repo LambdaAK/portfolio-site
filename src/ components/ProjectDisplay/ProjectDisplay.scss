@@ -3,7 +3,7 @@
 
 .project-display {
   min-height: 75vh;
-  margin-bottom: 100px;
+  margin-bottom: 55px;
 }
 
 .project-name {
@@ -14,6 +14,11 @@
   font-size: 4rem;
   width: fit-content;
   padding: 8px;
+  font-size: 50px;
+
+  @include md {
+    font-size: 60px;
+  }
 }
 
 .project-description {
@@ -27,12 +32,17 @@
 
 .technologies-used-content {
   width: fit-content;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: 1fr 1fr;
   margin-left: auto;
   margin-right: auto;
   gap: 2rem;
 
+  @include lg {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 .extra-component {
@@ -43,6 +53,7 @@
 
 .technology {
   @include shadow;
+  width: fit-content;
 }
 
 .technologies-used-header {
@@ -96,11 +107,15 @@
   border-radius: 8px;
   transition: all 0.25s ease-in-out;
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.2);
   }
   margin-top: auto;
   margin-bottom: auto;
   @include color-shadow;
-  width: 750px;
+  width: 500px;
+
+  @include md {
+    width: 600px;
+  }
   
 }

@@ -61,7 +61,7 @@ const openPage = (link: string) => window.open(link, '_blank');
 const EmailButton = () => {
   return (
     <div className="nav-button">
-      <EmailIcon onClick={openEmail} />
+      <EmailIcon onClick={openEmail} className={"contact-me-button"} />
     </div>
   )
 }
@@ -73,7 +73,7 @@ const linkedinLink = "https://www.linkedin.com/in/alex-kozik/"
 const GitHubButton = () => {
   return (
     <div className="nav-button">
-      <GitHubIcon onClick={() => openPage(githubLink)} />
+      <GitHubIcon onClick={() => openPage(githubLink)} className={"contact-me-button"} />
     </div>
   )
 }
@@ -81,7 +81,7 @@ const GitHubButton = () => {
 const LinkedInButton = () => {
   return (
     <div className="nav-button">
-      <LinkedInIcon onClick={() => openPage(linkedinLink)} />
+      <LinkedInIcon onClick={() => openPage(linkedinLink)} className={"contact-me-button"} />
     </div>
   )
 }
@@ -126,19 +126,20 @@ export default function Nav(props: NavProps) {
   }, [])
 
   return (
-    <m.div
-      ref={scope}
-      id="nav">
-      <NavButton text="Welcome" link="/" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
-      <NavButton text="Projects" link="/projects" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
-      <NavButton text="Education" link="/education" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
-      <NavButton text="Experience" link="/experience" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
-      <div className="nav-button"
-        onClick={downloadResume}
-      >
-        Resume
-      </div>
-      <ContactMe />
-    </m.div>
+    <>
+      <m.div
+        ref={scope}
+        id="nav">
+        <NavButton text="Welcome" link="/" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
+        <NavButton text="Projects" link="/projects" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
+        <NavButton text="Education" link="/education" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
+        <NavButton text="Experience" link="/experience" appState={props.appState} appAnimate={props.appAnimate} navScope={scope} navAnimate={animate} />
+        <div className="nav-button"
+          onClick={downloadResume}
+        >
+          Resume
+        </div>
+        <ContactMe />
+      </m.div></>
   )
 }
