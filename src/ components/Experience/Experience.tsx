@@ -48,7 +48,9 @@ const CMSXExperience = () => {
       <div className="responsibilities">
         Responsibilities:
         <ul>
-          <li>Developed a system where professors and TAs can use a spreadsheet to efficiently grant extensions to students</li>
+          <li>Developed a system where professors and TAs can use a CSV spreadsheet to efficiently grant extensions to students</li>
+          <li>Frontend coding in HTML, CSS, JS, React</li>
+          <li>Backend coding in Java</li>
           <li>Testing and reviewing code</li>
         </ul>
       </div>
@@ -97,11 +99,9 @@ const TAExperience = () => {
         Responsibilities:
         <ul>
           <li>Facilitating office hours to help with assignments and exam preparation</li>
-          <li>Grading homework assignments and exams</li>
+          <li>Grading homework assignments/projects and exams</li>
           <li>Leading recitations</li>
           <li>Managing small groups of students in completing a final project</li>
-
-
         </ul>
       </div>
     </div>
