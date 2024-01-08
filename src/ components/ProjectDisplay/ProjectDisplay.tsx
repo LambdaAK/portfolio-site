@@ -99,13 +99,17 @@ const ProjectDisplayPictures = (props: { pictures: string[] }) => {
     <div className="project-display-pictures">
       {
         props.pictures.map(pictureDir => {
-          return (
+          // need to check whether it's a png or mp4
+          if (pictureDir.endsWith(".mp4")) return (
+            <video src={pictureDir} autoPlay loop muted className="project-picture"
 
-            <img src={pictureDir} alt="" className="project-picture" style={
-              {
-                width: "500px"
-              }
-            } />
+            />
+          )
+
+          else return (
+
+            <img src={pictureDir} alt="" className="project-picture"
+            />
 
           )
         })

@@ -57,17 +57,20 @@
 .project-display-pictures {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
   gap: 50px;
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
-  margin-top: 50px;
+  margin-top: 40px;
 }
-@media (min-width: 992px) {
+@media (min-width: 1600px) {
   .project-display-pictures {
     grid-template-columns: 1fr 1fr;
-    margin-top: 0px;
+  }
+}
+@media (min-width: 2380px) {
+  .project-display-pictures {
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -103,6 +106,7 @@
   border-radius: 8px;
   border-radius: 10px;
   box-shadow: 0 0 5px 0px rgba(22, 127, 239, 0.5), 0 0 15px 5px rgba(107, 241, 174, 0.7);
+  width: 750px;
 }
 .project-picture:hover {
   transform: scale(1.05);

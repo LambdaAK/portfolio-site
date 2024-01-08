@@ -3,10 +3,12 @@ import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDi
 import "./Projects.css"
 import { TypeAnimation } from "react-type-animation"
 
-import algosPicture from "./../../../public/AlgoSandbox pictures/algos.png"
-import homePagePicture from "./../../../public/AlgoSandbox pictures/home_page.png"
-import mergeSortPicture from "./../../../public/AlgoSandbox pictures/merge_sort.png"
-import tagsPicture from "./../../../public/AlgoSandbox pictures/tags.png"
+import algoSandboxWelcomeVideo from "./../../../public/AlgoSandbox pictures/algosandbox title video.mp4"
+import algoSandboxMergeSortVideo from "./../../../public/AlgoSandbox pictures/merge_sort_video-1.mp4"
+import algoSandboxBubbleSortVideo from "./../../../public/AlgoSandbox pictures/bubble_sort_video.mp4"
+import algoSandboxLeftBisectVideo from "./../../../public/AlgoSandbox pictures/left_bisect_video.mp4"
+import algoSandboxSearchDemo from "./../../../public/AlgoSandbox pictures/tags_demo.mp4"
+import algoSandboxSelectionSortOverview from "./../../../public/AlgoSandbox pictures/selection_sort_overview.mp4"
 
 import hsHome from "./../../../public/HabitStack pictures/home.png"
 import hsHabitStacks from "./../../../public/HabitStack pictures/stacks.png"
@@ -14,6 +16,12 @@ import hsHabitCreator from "./../../../public/HabitStack pictures/good_habits3.p
 import hsServer from "./../../../public/HabitStack pictures/servers.png"
 import hsTasks from "./../../../public/HabitStack pictures/tasks.png"
 import hsStacks2 from "./../../../public/HabitStack pictures/stacks2.png"
+
+import critterWorldCode from "./../../../public/critter world pictures/critter_world_code.png"
+import critterWorldTitle from "./../../../public/critter world pictures/critter_world_title.png"
+
+import critterWorldRecording1 from "./../../../public/critter world pictures/critter_world_recording_1.mp4"
+import spiralCritter from "./../../../public/critter world pictures/spiral_critter.mp4"
 
 interface InputOutputPair {
   input: string,
@@ -306,10 +314,12 @@ const projectInfo: ProjectDisplayProps[] = [
   {
     name: "AlgoSandbox",
     pictures: [
-      algosPicture,
-      homePagePicture,
-      tagsPicture,
-      mergeSortPicture,
+      algoSandboxWelcomeVideo,
+      algoSandboxSelectionSortOverview,
+      algoSandboxMergeSortVideo,
+      algoSandboxBubbleSortVideo,
+      algoSandboxLeftBisectVideo,
+      algoSandboxSearchDemo
     ],
     description: "AlgoSandbox is a powerful tool designed to help you grasp complex algorithms and data structures through visual representation.",
     technologies: [
@@ -342,9 +352,9 @@ const projectInfo: ProjectDisplayProps[] = [
   {
     name: "HabitStack",
     pictures: [
+      hsHome,
       hsHabitStacks,
       hsHabitCreator,
-      hsHome,
       hsServer,
       hsStacks2,
       hsTasks
@@ -383,18 +393,64 @@ const projectInfo: ProjectDisplayProps[] = [
     github: "",
     features: [],
     extraComponents: []
+  },
+  {
+    name: "Critter World",
+    pictures: [
+      critterWorldRecording1,
+      spiralCritter,
+      critterWorldTitle,
+      critterWorldCode,
+
+    ],
+    description: "Critter World is a game where you can create your own critters and watch them compete against each other. The critters are written in a custom language called CritterScript, which is a subset of OCaml.",
+    technologies: [
+      {
+        name: "Java",
+        icon: "java"
+      },
+      {
+        name: "JavaFX",
+        icon: "Java"
+      }
+    ],
+    github: "",
+    features: [],
+    extraComponents: []
+  },
+  {
+    name: "Portfolio Website",
+    pictures: [],
+    description: "",
+    technologies: [
+      {
+        name: "React",
+        icon: "react"
+      },
+      {
+        name: "TypeScript",
+        icon: "typescript"
+      },
+      {
+        name: "SASS",
+        icon: "sass"
+      },
+      {
+        name: "Framer-Motion",
+        icon: "css3"
+      },
+    ],
+    github: "https://github.com/LambdaAK/portfolio-site",
+    features: [],
+    extraComponents: []
   }
 ]
 
 export default function Projects() {
-
   return (
-
     <div id="projects">
       {
-        projectInfo.map(project =>
-          <ProjectDisplay {...project} />
-        )
+        projectInfo.map(project => <ProjectDisplay {...project} />)
       }
     </div>
   )
