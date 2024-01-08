@@ -49,8 +49,11 @@ const CollegeEducation = () => {
           <Course number="CS 3110" name="Data Structures and Functional Programming" />
           <Course number="CS 3410" name="Computer System Organization and Programming" />
           <Course number="CS 4820" name="Introduction to Analysis of Algorithms" />
+          <Course number="CS 4780" name="Introduction to Machine Learning (Currently Taking)" />
+          <Course number="CS 4110" name="Programming Languages and Logics (Currently Taking)" />
           <Course number="MATH 2210" name="Linear Algebra" />
           <Course number="MATH 2220" name="Multivariable Calculus" />
+          <Course number="MATH 4710" name="Probability (Currently Taking)" />
           <Course number="ECON 1120" name="Introductory Macroeconomics" />
           <Course number="RUSSA 3305" name="Russian Reading and Writing for Heritage Speakers" />
         </div>
