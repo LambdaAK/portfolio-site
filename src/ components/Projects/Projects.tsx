@@ -359,7 +359,11 @@ const projectInfo: ProjectDisplayProps[] = [
       critterWorldCode,
 
     ],
-    description: "Critter World is a game where you can create your own critters and watch them compete against each other. The critters are written in a custom language called CritterScript, which is a subset of OCaml.",
+    description: `
+    Critter World is an interactive artificial life simulator. It features a custom programming language, which represents the genome (behavior) of each critter species. Critters can be programmed to move, eat, reproduce, and attack other critters.
+    When a critter reproduces, the offspring inherits the genome (program) of its parent, but with mutations. The mutations are modeled as random, but valid changes in the program that controls the critter.
+    This was my final project for CS 2112, completed in a group of 3.
+    `,
     technologies: [
       {
         name: "Java",
@@ -415,7 +419,7 @@ const projectInfo: ProjectDisplayProps[] = [
         icon: "firebase"
       }
     ],
-    github: "",
+    github: "https://github.com/LambdaAK/HabitStack",
     features: [],
     extraComponents: []
   },

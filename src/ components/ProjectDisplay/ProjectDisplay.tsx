@@ -16,9 +16,16 @@ const ProjectName = (props: { name: string, link: string }) => {
   return (
     <div className="project-name">
       {props.name}
-      <GitHubLink
-        link={props.link}
-      />
+      {
+        (() => {
+          if (props.link != "") return (
+            <GitHubLink
+              link={props.link}
+            />
+          )
+          else return <></>
+        })()
+      }
     </div >
   )
 }
