@@ -278,7 +278,7 @@ const LambdaScriptDemo = () => {
       <TypeAnimation
         sequence={demoTexts}
         wrapper="span"
-        speed={85}
+        speed={90}
         repeat={Infinity}
         className="ls-demo-text"
       />
@@ -291,7 +291,19 @@ const projectInfo: ProjectDisplayProps[] = [
   {
     name: "LambdaScript",
     pictures: [],
-    description: "LambdaScript is a statically-typed functional programming language designed to make it easy to write elegant and expressive code.",
+    description: `
+    LambdaScript is a statically-typed functional programming language designed to make it easy 
+    to write elegant and expressive code.
+
+    It features a powerful type system underpinned by "kinds", which allows for higher-order arithmetic on types.
+
+    It also features a type inference engine similar to the Hindley-Milner algorithm, which can infer the types of most expressions, so you don't have to write them out.
+
+    Currently, LambdaScript is an interpreted language with the lexer, parser, typechecker, and evaluator all written in OCaml.
+
+    In the future, I plan to make a compiler to JavaScript, which would allow LambdaScript to have a wider range of applications.
+
+    `,
     technologies: [
       {
         name: "OCaml",

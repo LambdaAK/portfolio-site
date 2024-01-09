@@ -34,7 +34,7 @@
   width: fit-content;
   font-size: 20px;
 }
-@media (min-width: 992px) {
+@media (min-width: 1100px) {
   .ls-demo-text {
     font-size: 25px;
   }

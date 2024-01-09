@@ -8,7 +8,6 @@
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
-
 }
 
 #brief-intro {
@@ -16,15 +15,24 @@
 }
 
 .welcome-element {
-  margin: auto;
+  margin-top: 20px;
+
+  @include lg {
+    margin-left: 20px;
+    width: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+  @include xl {
+    margin-left: 0px;
+  }
 }
 
 #welcome-content {
   height: fit-content;
   @include shadow-no-padding;
   width: 500px;
-  border-radius: 10px; /* Adjust the border-radius according to your design */
-  
+  border-radius: 10px;
 }
 
 .first-welcome-line {
@@ -67,17 +75,19 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 100%;
 
   @include xl {
     flex-direction: row;
   }
-
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .second-container {
   display: flex;
   flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
 
   @include lg {
     flex-direction: row;
@@ -92,7 +102,6 @@
 .intro {
   @include shadow-no-padding;
   font-size: 30px;
-  width: 90%;
   margin-left: auto;
   margin-right: auto;
 

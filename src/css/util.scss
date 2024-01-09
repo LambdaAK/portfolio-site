@@ -1,8 +1,8 @@
 $extra-small: 0px;
 $small: 400px;
 $medium: 768px;
-$large: 992px;
-$extra-large: 1200px;
+$large: 1100px;
+$extra-large: 1350px;
 
 @mixin xs {
     @media (min-width: $extra-small) {@content}
