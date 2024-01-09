@@ -333,7 +333,21 @@ const projectInfo: ProjectDisplayProps[] = [
       algoSandboxLeftBisectVideo,
       algoSandboxSearchDemo
     ],
-    description: "AlgoSandbox is a powerful tool designed to help you grasp complex algorithms and data structures through visual representation.",
+    description: `
+    
+    AlgoSandbox is a powerful tool designed to help you grasp complex algorithms and 
+    data structures through visual representation.
+
+    It features a variety of algorithms and data structures, including:
+      selection sort, insertion sort, merge sort, bubble sort, binary search (left bisect and right bisect), stack, queue, and more.
+
+    Each algorithm and data stucture has a sandbox where you can give it sample inputs and watch it run.
+
+    Each algorithm and data structure also has information regarding its time/space complexity, a description of how it works, and a few implementations.
+
+    Each algorithm and data structure has a list of tags, which can be used to searching by tags. There is also a search bar to search by name.
+    
+    `,
     url: "http://algosandbox.alexkozik.com",
     technologies: [
       {
