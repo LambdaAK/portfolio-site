@@ -1,6 +1,5 @@
 import { useAnimate } from "framer-motion"
 import "./Nav.css"
-import { useEffect } from "react"
 import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -23,18 +22,18 @@ const NavButton = (props: navButtonProps) => {
 
 
   const animateFunction = async () => {
-    await animate(state.current, { opacity: 0, x: 200 }, { duration: 1 })
+    await animate(state.current, { opacity: 0, x: 200 }, { duration: 0.5 })
   }
 
   return (
     <div className="nav-button"
       onClick={
         async () => {
-          animateFunction()
-          await props.navAnimate(props.navScope.current, { y: -200 }, { duration: 1, ease: "easeInOut" })
-          setTimeout(() => {
-            window.location.href = props.link
-          }, 200)
+          await animateFunction()
+          //await props.navAnimate(props.navScope.current, { y: -200 }, { duration: 0.5, ease: "easeInOut" })
+
+          window.location.href = props.link
+
         }
       }
     >
@@ -116,14 +115,6 @@ export default function Nav(props: NavProps) {
 
   const [scope, animate] = useAnimate()
 
-  const animateIn = async () => {
-    await animate(scope.current, { y: -100, opacity: 0 }, { duration: 0 })
-    await animate(scope.current, { y: 0, opacity: 1 }, { duration: 1, ease: "easeInOut" })
-  }
-
-  useEffect(() => {
-    animateIn()
-  }, [])
 
   return (
     <>

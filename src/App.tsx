@@ -22,7 +22,7 @@ function App() {
 
   const fadeInAnimate = async () => {
     await animate(state.current, { opacity: 0, x: -200 }, { duration: 0 })
-    await animate(state.current, { opacity: 1, x: 0 }, { duration: 1, ease: "easeInOut" })
+    await animate(state.current, { opacity: 1, x: 0 }, { duration: 0.5, ease: "easeInOut" })
   }
 
   useEffect(() => {
