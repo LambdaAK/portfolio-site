@@ -22,10 +22,16 @@
 }
 
 .project-description {
-  margin-left: 100px;
-  margin-right: 100px;
+  margin-left: auto;
+  margin-right: auto;
   width: fit-content;
-  font-size: 25px;
+  
+  width: 90vw;
+  font-size: 20px;
+
+  @include md {
+    font-size: 25px;
+  }
 
 }
 

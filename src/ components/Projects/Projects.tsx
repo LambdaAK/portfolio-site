@@ -1,7 +1,5 @@
-import { motion } from "framer-motion"
 import ProjectDisplay, { ProjectDisplayProps } from "../ProjectDisplay/ProjectDisplay"
 import "./Projects.css"
-import { TypeAnimation } from "react-type-animation"
 
 import algoSandboxWelcomeVideo from "./../../../public/AlgoSandbox pictures/algosandbox title video.mp4"
 import algoSandboxMergeSortVideo from "./../../../public/AlgoSandbox pictures/merge_sort_video-1.mp4"
@@ -22,267 +20,388 @@ import critterWorldTitle from "./../../../public/critter world pictures/critter_
 
 import critterWorldRecording1 from "./../../../public/critter world pictures/critter_world_recording_1.mp4"
 import spiralCritter from "./../../../public/critter world pictures/spiral_critter.mp4"
+import code from "./lsCode"
 
-interface InputOutputPair {
-  input: string,
-  output: string,
-}
-
-interface DemoProps {
-  description: string,
-  pairs: InputOutputPair[]
-}
-
-const demoProps: DemoProps[] = [
-  {
-    description: "Option Monad",
-    pairs: [
-      {
-        input:
-          `type Option a =
-  | None
-  | Just (a)`
-        ,
-        output: "Option: * -> *"
-      },
-      {
-        input:
-
-          `let lift f x =
-  switch x =>
-  | None -> None
-  | Just v -> Just (f v)
-  end`,
-        output: "lift: (a -> b) -> Option a -> Option b"
-
-      },
-      {
-        input:
-          `let (>>=) x f =
-  switch x =>
-  | None -> None
-  | Just v -> f v
-  end`,
-        output: "(>>=): Option a -> (a -> Option b) -> Option b"
-      },
-      {
-        input:
-          `(Just 42) >>= (\\ x -> Just (x + 1))
-          >>= (\\ x -> Just (x * x))
-          `,
-        output: "Just (86): Option Int"
-      },
-      {
-        input:
-          `None
-    >>= (\\ x -> Just (x + 1))
-    >>= (\\ x -> Just (x * x))
-          `,
-        output: "None: Option Int"
-      }
-    ]
-  },
-  {
-    description: "Higher-Order Functions over lists",
-    pairs: [
-      {
-        input: `let rec reduce_left op arr acc =
-      switch arr =>
-      | [] -> acc
-      | h :: t -> reduce_left op t (op acc h)
-      end`,
-        output: "reduce_left: (a -> b -> a) -> [b] -> a -> a: function",
-      },
-      {
-        input: `let rec reduce_right op acc arr =
-      switch arr =>
-      | [] -> acc
-      | h :: t -> op h (reduce_right op acc t)
-      end`,
-        output: "reduce_right: (a -> b -> b) -> b -> [a] -> b: function",
-      },
-      {
-        input: `let rec map f arr =
-      switch arr =>
-      | [] -> []
-      | h :: t -> f h :: map f t
-      end
-        
-        `,
-        output: "map: (a -> b) -> [a] -> [b]: function",
-      },
-      {
-        input: `let rec filter p arr =
-      switch arr =>
-      | [] -> []
-      | h :: t ->
-        if p h then h :: filter p t
-        else filter p t
-      end
-        
-        `,
-        output: "filter: (a -> Bool) -> [a] -> [a]: function",
-      }
-    ]
-  },
-  {
-    description: "Binary Tree Functor",
-    pairs: [
-      {
-        input:
-          `type Tree a =
-  | Leaf
-  | Node (a, Tree a, Tree a)`
-        ,
-        output: "Tree: * -> *"
-      },
-      {
-        input:
-          `let rec map_tree f tree =
-  switch tree =>
-  | Leaf -> Leaf
-  | Node (v, l, r) ->
-      Node (f v, lift f l, lift f r)
-  end
-        
-        `,
-        output: "map_tree: (a -> b) -> Tree a -> Tree b"
-      },
-      {
-        input:
-          `let rec inorder t =
-  switch t =>
-  | Leaf -> []
-  | Node (l, v, r) ->
-      inorder l ++ [v] ++ inorder r
-  end
-        `
-        ,
-        output: "inorder: Tree a -> [a]"
-      }
-    ]
-  },
-  {
-    description: "Syntactic sugar for lists",
-    pairs: [
-      {
-        input: "[x * x | x <- [1, 2, 3, 4, 5]]",
-        output: "[1, 4, 9, 16, 25]: [Int]"
-      },
-      {
-        input: "[x + y | x <- [1, 2, 3], y <- [4, 5, 6]]",
-        output: "[5, 6, 7, 6, 7, 8, 7, 8, 9]: [Int]"
-      },
-      {
-        input: "[1 ... 10]",
-        output: "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]: [Int]"
-      },
-      {
-        input: `let rec (++) a b = 
-  switch a =>
-  | [] -> b
-  | h :: t -> h :: (t ++ b)
-  end
-        `,
-        output: "(++): [a] -> [a] -> [a]"
-      },
-      {
-        input: `[1, 2, 3, 4] ++ [5, 6, 7, 8]`,
-        output: "[1, 2, 3, 4, 5, 6, 7, 8]: [Int]"
-      }
-    ]
-  },
-  {
-    description: "Infinite Sequences as Polymorphic ADT",
-    pairs: [
-      {
-        input: "type Seq a = | Cons (a, Unit -> Seq a)",
-        output: "Seq: * -> *"
-      },
-      {
-        input: `let rec from n = Cons (n, \\ () -> from (n + 1))`,
-        output: "from: Int -> Seq Int"
-      },
-      {
-        input: `let hd s =
-        switch s =>
-        | Cons (x, _) -> x
-        end`,
-        output: "hd: Seq a -> a"
-      },
-      {
-        input: `let tl s =
-        switch s =>
-        | Cons (_, f) -> f ()
-        end`,
-        output: "tl: Seq a -> Seq a"
-      },
-      {
-        input: `let rec map f s =
-        switch s =>
-        | Cons (x, g) -> Cons (f x, \\ () -> map f (g ()))
-        end`,
-        output: "map: (a -> b) -> Seq a -> Seq b"
-      },
-      {
-        input: `let rec interleave s1 s2 =
-        switch s1 =>
-        | Cons (x, f) -> Cons (x, \\ () -> interleave s2 (f ()))
-        end`,
-        output: "interleave: Seq a -> Seq a -> Seq a"
-      }
-    ]
-  }
-
-]
-
-const shuffle = (array: any[]) => {
-  let currentIndex = array.length, randomIndex;
-
-  while (0 !== currentIndex) {
-
-    randomIndex = Math.floor(Math.random() * currentIndex);
-    currentIndex--;
-
-    [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
-  }
-
-  return array;
-}
-
-
-const demoTextsFlattened: (string | number)[] = demoProps.map(demo => {
-  /*
-  demo is a description and a list of input/output pairs
-  for each input/output pair, make a string
-
-  then, make a list fo those strings
-  
-  */
-
-  const inputOutputPairs: (string | number)[] = demo.pairs.map(pair => {
-    return pair.input + "\n\n" + pair.output
-  })
-
-  return inputOutputPairs;
-
-}).flat()
-
-const demoTexts = shuffle(demoTextsFlattened).flatMap(text => [text, 4000])
-
-const LambdaScriptDemo = () => {
-
+const StaticallyTypedFeature = () => {
   return (
-    <motion.pre className="ls-demo">
-      <TypeAnimation
-        sequence={demoTexts}
-        wrapper="span"
-        speed={90}
-        repeat={Infinity}
-        className="ls-demo-text"
-      />
-    </motion.pre >
+    <div className="ls-feature">
+      <h1 className="feature-header">
+        Statically-Typed
+      </h1>
+      <p className="feature-desc">
+        Every expression in LambdaScript has a type which is determined at compile time. All types that are composed using function application have to match up.
+        If they don't, the compiler will reject the program.
+
+        Not only does the type system prevent runtime errors, but it is also a lanauge in itself for expressing the structure of a program.
+      </p>
+      <div className="expand-button"
+        onClick={
+          () => {
+            console.log("clicked")
+            const demo = document.getElementById("statically-typed-demo")
+            if (demo) {
+              console.log("demo found")
+              if (demo.style.display === "none") {
+                console.log('display is none, setting to flex')
+                demo.style.display = "flex"
+              }
+              else {
+                console.log("display is flex setting to none")
+                demo.style.display = "none"
+              }
+            }
+          }
+        }
+      >
+        Click to expand
+      </div>
+      <div id="statically-typed-demo"
+        style={
+          {
+            display: "none"
+          }
+        }
+      >
+        <pre
+          className="demo-code"
+        >
+          {
+            (() => {
+              const in1 = "let x = 1\n\n"
+              const out1 = "x = 1: Int\n\n"
+              const in2 = "let f x = x + 1\n\n"
+              const out2 = "f = (Int -> Int): function\n\n"
+              return (
+                <>
+                  <span className="input">{in1}</span>
+                  <span className="output">{out1}</span>
+                  <span className="input">{in2}</span>
+                  <span className="output">{out2}</span>
+                  <span className="input">{code.foo2}</span>
+                  <span className="output">{code.foo2Type}</span>
+                </>
+              )
+            })()
+          }
+        </pre>
+      </div>
+    </div>
+  )
+}
+
+const TypeInferenceFeature = () => {
+  return (
+    <div className="ls-feature">
+      <h1 className="feature-header">
+        Type Inference
+      </h1>
+      <p className="feature-desc">
+        LambdaScript's powerful type inference mechanism makes it so you don't have to write out the types of expressions.
+
+        During compile time, the type inference engine will infer the most general type of most expressions, and assign that type to the expression in the static environment.
+
+      </p>
+      <div className="expand-button"
+        onClick={
+          () => {
+            console.log("clicked")
+            const demo = document.getElementById("type-inference-demo")
+            if (demo) {
+              if (demo.style.display === "none") {
+                demo.style.display = "flex"
+              }
+              else {
+                demo.style.display = "none"
+              }
+            }
+          }
+        }
+      >
+        Click to expand
+      </div>
+      <div id="type-inference-demo"
+        style={
+          {
+            display: "none"
+          }
+        }
+      >
+        <pre
+          className="demo-code"
+        >
+          <span className="input">{code.map}</span>
+          <span className="output">{code.mapType}</span>
+          <span className="input">{code.foo}</span>
+          <span className="output">{code.fooType}</span>
+        </pre>
+      </div>
+    </div>
+  )
+}
+
+const PolymorphicADTsFeatures = () => {
+  return (
+    <div className="ls-feature">
+      <h1 className="feature-header">
+        Polymorphic ADTs
+      </h1>
+      <p className="feature-desc">
+        Sum and product types are the building blocks of data structures in LambdaScript.
+      </p>
+      <div className="expand-button"
+        onClick={
+          () => {
+            console.log("clicked")
+            const demo = document.getElementById("poly-adts-demo")
+            if (demo) {
+              console.log("demo found")
+              if (demo.style.display === "none") {
+                console.log('display is none, setting to flex')
+                demo.style.display = "flex"
+              }
+              else {
+                console.log("display is flex setting to none")
+                demo.style.display = "none"
+              }
+            }
+          }
+        }
+      >
+        Click to expand
+      </div>
+      <div id="poly-adts-demo"
+        style={
+          {
+            display: "none"
+          }
+        }
+      >
+        <pre
+          className="demo-code"
+        >
+          {
+            (() => {
+              return (
+                <>
+                  <span className="input">{code.option}</span>
+                  <span className="output">{code.optionType}</span>
+
+                </>
+              )
+            })()
+          }
+        </pre>
+        <div className="explanation">
+          Here, <span className="input">Option</span> is a type constructor, and <span className="input">a</span> is a type variable
+        </div>
+        <div className="explanation">
+        </div>
+        <pre
+          className="demo-code"
+        >
+          {
+            (() => {
+              return (
+                <>
+                  <span className="input">{code.tree}</span>
+                  <span className="output">{code.treeType}</span>
+
+                </>
+              )
+            })()
+          }
+        </pre>
+      </div>
+    </div >
+  )
+}
+const KindsFeature = () => {
+  return (
+    <div className="ls-feature">
+      <h1 className="feature-header">
+        Kinds and Higher Order Type Arithmetic
+      </h1>
+      <p className="feature-desc">
+        Kinds are the types of types. They are used to express the functionality of type constructors.
+      </p>
+      <div className="expand-button"
+        onClick={
+          () => {
+            const demo = document.getElementById("kinds-demo")
+            if (demo) {
+              console.log("demo found")
+              if (demo.style.display === "none") {
+                demo.style.display = "flex"
+              }
+              else {
+                demo.style.display = "none"
+              }
+            }
+          }
+        }
+      >
+        Click to expand
+      </div>
+      <div id="kinds-demo"
+        style={
+          {
+            display: "none"
+          }
+        }
+      >
+        <pre
+          className="demo-code"
+        >
+          {
+            (() => {
+              return (
+                <>
+                  <span className="input">{code.app}</span>
+                  <span className="output">{code.appType}</span>
+                  <span className="input">{code.app2}</span>
+                  <span className="output">{code.app2Type}</span>
+                </>
+              )
+            })()
+          }
+        </pre>
+      </div>
+    </div>
+  )
+}
+
+const PatternMatchingFeature = () => {
+  return (
+    <div className="ls-feature">
+      <h1 className="feature-header">
+        Pattern Matching
+      </h1>
+      <p className="feature-desc">
+        Pattern matching is a powerful tool for deconstructing data structures and performing different computations based on the structure of the data.
+      </p>
+      <div className="expand-button"
+        onClick={
+          () => {
+            const demo = document.getElementById("pattern-matching-demo")
+            if (demo) {
+              if (demo.style.display === "none") {
+                demo.style.display = "flex"
+              }
+              else {
+                demo.style.display = "none"
+              }
+            }
+          }
+        }
+      >
+        Click to expand
+      </div>
+      <div id="pattern-matching-demo"
+        style={
+          {
+            display: "none"
+          }
+        }
+      >
+        <div className="explanation">Here's how we can use pattern matching to define an option monad</div>
+        <pre
+          className="demo-code">
+          <span className="input">{code.option}</span>
+          <span className="output">{code.optionType}</span>
+          <span className="input">{code.optionReturn}</span>
+          <span className="output">{code.optionReturnType}</span>
+          <span className="input">{code.optionBind}</span>
+          <span className="output">{code.optionBindType}</span>
+        </pre>
+      </div>
+    </div>
+  )
+}
+
+const InfixFeature = () => {
+  return (
+    <div className="ls-feature">
+      <h1 className="feature-header">
+        Custom Infix Functions
+      </h1>
+      <p className="feature-desc">
+        Custom infix functions allow you to define your own operators and use them in your code, making it more concice and readable.
+      </p>
+      <div className="expand-button"
+        onClick={
+          () => {
+            const demo = document.getElementById("infix-demo")
+            if (demo) {
+              if (demo.style.display === "none") {
+                demo.style.display = "flex"
+              }
+              else {
+                demo.style.display = "none"
+              }
+            }
+          }
+        }
+      >
+        Click to expand
+      </div>
+      <div id="infix-demo"
+        style={
+          {
+            display: "none"
+          }
+        }
+      >
+        <div className="explanation">
+          Here's how we can define a function application operator
+        </div>
+
+        <pre
+          className="demo-code">
+          <span className="input">{code.infix1}</span>
+          <span className="output">{code.infix1Type}</span>
+        </pre>
+
+        <div className="explanation">
+          Here's how we can define a function composition operator
+        </div>
+
+        <pre className="demo-code">
+          <span className="input">{code.infix2}</span>
+          <span className="output">{code.infix2Type}</span>
+        </pre>
+
+        <div className="explanation">
+          This infix operator takes a subsequence of the natural numbers
+        </div>
+
+        <pre className="demo-code">
+          <span className="input">{code.infix3}</span>
+          <span className="output">{code.infix3Type}</span>
+        </pre>
+
+      </div>
+    </div>
+  )
+}
+
+const LSFeatures = () => {
+  return (
+    <>
+      <h1
+        className="ls-features-header"
+      >
+        Features
+      </h1>
+      <div className="ls-features">
+
+        <StaticallyTypedFeature />
+        <TypeInferenceFeature />
+        <PolymorphicADTsFeatures />
+        <KindsFeature />
+        <PatternMatchingFeature />
+        <InfixFeature />
+      </div>
+    </>
   )
 }
 
@@ -321,7 +440,7 @@ const projectInfo: ProjectDisplayProps[] = [
       "Anonymous functions",
       "Closures"
     ],
-    extraComponents: [LambdaScriptDemo]
+    extraComponents: [LSFeatures]
   },
   {
     name: "AlgoSandbox",
@@ -480,6 +599,11 @@ const projectInfo: ProjectDisplayProps[] = [
     extraComponents: []
   }
 ]
+
+
+
+
+
 
 export default function Projects() {
   return (

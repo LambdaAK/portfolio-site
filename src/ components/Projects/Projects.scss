@@ -14,7 +14,7 @@
   background-color: #282b30;
   min-width: 50vw;
   min-height: 15vh;
-  color: greenyellow;
+  color: rgb(173, 255, 47);
   padding: 20px;
   border-style: solid;
 
@@ -32,7 +32,6 @@
 
   @include lg {
     font-size: 25px;
-
   }
 }
 
@@ -78,5 +77,143 @@
   margin-left: auto;
   margin-right: auto;
   @include shadow;
+}
+
+.ls-examples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  font-size: 24px;
+}
+
+.ls-example {
+  @include shadow-no-padding;
+  padding: 16px;
+}
+
+.input {
+  color: #3498db;
+}
+
+.output {
+  color: rgb(143, 204, 39)
+}
+
+.example-desc {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.ls-features {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+
+  @media (min-width: 1250px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 1850px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
 
 }
+
+.ls-feature {
+  @include shadow;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: fit-content;
+  width: 540px;
+
+}
+
+.expand-button {
+  @include shadow-no-padding;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
+
+  &:hover {
+    @include color-shadow;
+    color: white;
+    background-color: $background-color-2;
+  }
+}
+
+.demo {
+  flex-direction: column;
+  display: none;
+}
+
+.feature-header {
+  font-weight: bold;
+  font-size: 28px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.feature-desc {
+  font-size: 20px;
+}
+
+#statically-typed-demo {
+  @extend .demo;
+  display: none;
+}
+
+#type-inference-demo {
+  @extend .demo;
+  display: none;
+}
+
+#poly-adts-demo {
+  @extend.demo;
+  display: none;
+}
+
+#kinds-demo {
+  @extend .demo;
+  display: none;
+}
+
+#pattern-matching-demo {
+  @extend .demo;
+  display: none;
+}
+
+#infix-demo {
+  @extend .demo;
+  display: none;
+}
+
+.ls-features-header {
+  font-weight: bold;
+  font-size: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.demo-code {
+  @include shadow;
+  padding: 10px;
+  width: fit-content;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #3498db;
+  background-color: #eafafa;
+}
+
+.explanation {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
