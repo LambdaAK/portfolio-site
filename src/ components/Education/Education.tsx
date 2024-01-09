@@ -56,6 +56,8 @@ const CollegeEducation = () => {
           <Course number="MATH 4710" name="Probability (Currently Taking)" />
           <Course number="ECON 1120" name="Introductory Macroeconomics" />
           <Course number="RUSSA 3305" name="Russian Reading and Writing for Heritage Speakers" />
+
+
         </div>
       </div>
 

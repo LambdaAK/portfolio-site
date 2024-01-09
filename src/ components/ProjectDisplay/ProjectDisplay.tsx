@@ -1,6 +1,7 @@
 import GitHubLink from "../GitHubLink/GitHubLink"
 import "./ProjectDisplay.css"
 
+import TerminalIcon from '@mui/icons-material/Terminal';
 
 export interface ProjectDisplayProps {
   name: string,
@@ -9,6 +10,7 @@ export interface ProjectDisplayProps {
   technologies: Technology[],
   github: string,
   features: string[],
+  url: string, // url to the project
   extraComponents: (() => JSX.Element)[]
 }
 
@@ -126,6 +128,36 @@ const ProjectDisplayPictures = (props: { pictures: string[] }) => {
   )
 }
 
+interface TryProps {
+  url: string,
+  projectName: string
+}
+
+const Try = (props: TryProps) => {
+  if (props.url != "") return (
+    <div className="try"
+      onClick={
+        () => {
+          window.open(props.url)
+        }
+      }
+    >
+      <TerminalIcon
+        style={
+          {
+            transform: "scale(1.5)",
+            marginRight: "10px",
+            marginTop: "auto",
+            marginBottom: "auto"
+          }
+        }
+      />
+      Try {props.projectName}
+    </div>
+  )
+  else return <></>
+}
+
 export default function ProjectDisplay(props: ProjectDisplayProps) {
 
   return (
@@ -136,11 +168,12 @@ export default function ProjectDisplay(props: ProjectDisplayProps) {
 
       <TechnologiesUsed technologies={props.technologies} />
 
+      <Try url={props.url} projectName={props.name} />
+
       <ProjectDisplayPictures pictures={props.pictures} />
       {
         props.extraComponents.map(component => <div className="extra-component">{component()}</div>)
       }
     </div>
-
   )
 }

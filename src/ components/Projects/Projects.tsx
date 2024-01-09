@@ -279,7 +279,6 @@ const LambdaScriptDemo = () => {
         sequence={demoTexts}
         wrapper="span"
         speed={85}
-        style={{ fontSize: '2em', display: 'inline-block' }}
         repeat={Infinity}
         className="ls-demo-text"
       />
@@ -299,6 +298,7 @@ const projectInfo: ProjectDisplayProps[] = [
         icon: "ocaml"
       }
     ],
+    url: "",
     github: "https://github.com/LambdaAK/LambdaScript",
     features: [
       "Pattern matching",
@@ -322,6 +322,7 @@ const projectInfo: ProjectDisplayProps[] = [
       algoSandboxSearchDemo
     ],
     description: "AlgoSandbox is a powerful tool designed to help you grasp complex algorithms and data structures through visual representation.",
+    url: "http://algosandbox.alexkozik.com",
     technologies: [
       {
         name: "React",
@@ -359,6 +360,7 @@ const projectInfo: ProjectDisplayProps[] = [
       critterWorldCode,
 
     ],
+    url: "",
     description: `
     Critter World is an interactive artificial life simulator. It features a custom programming language, which represents the genome (behavior) of each critter species. Critters can be programmed to move, eat, reproduce, and attack other critters.
     When a critter reproduces, the offspring inherits the genome (program) of its parent, but with mutations. The mutations are modeled as random, but valid changes in the program that controls the critter.
@@ -380,6 +382,7 @@ const projectInfo: ProjectDisplayProps[] = [
   },
   {
     name: "HabitStack",
+    url: "",
     pictures: [
       hsHome,
       hsHabitStacks,
@@ -425,6 +428,7 @@ const projectInfo: ProjectDisplayProps[] = [
   },
   {
     name: "Portfolio Website",
+    url: "",
     pictures: [],
     description: "",
     technologies: [

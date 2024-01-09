@@ -116,6 +116,28 @@
 
   @include md {
     width: 600px;
+  } 
+}
+
+.try {
+  @include shadow-no-padding;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  padding: 10px;
+  transition: all 0.25s ease-in-out;
+  margin-top: 20px;
+  font-size: 25px;
+
+  @include md {
+    font-size: 25px;
   }
-  
+
+  &:hover {
+    @include color-shadow;
+    background-color: $background-color-2;
+    color: white;
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 }

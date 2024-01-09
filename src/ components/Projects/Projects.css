@@ -22,11 +22,22 @@
   padding: 20px;
   border-style: solid;
 }
+@media (min-width: 768px) {
+  .ls-demo {
+    font-size: 12px;
+  }
+}
 
 .ls-demo-text {
   margin-left: auto;
   margin-right: auto;
   width: fit-content;
+  font-size: 20px;
+}
+@media (min-width: 992px) {
+  .ls-demo-text {
+    font-size: 25px;
+  }
 }
 
 .ls-pair {
