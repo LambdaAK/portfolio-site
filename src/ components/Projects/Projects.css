@@ -24,7 +24,7 @@
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (min-width: 1850px) {
+@media (min-width: 1860px) {
   .ls-features {
     grid-template-columns: 1fr 1fr 1fr;
   }

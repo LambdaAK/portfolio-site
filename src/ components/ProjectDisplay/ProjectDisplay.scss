@@ -32,9 +32,7 @@
   @include md {
     font-size: 25px;
   }
-
 }
-
 
 .technologies-used-content {
   width: fit-content;
@@ -78,11 +76,11 @@
   width: fit-content;
   margin-top: 40px;
 
-  @media (min-width: 1600px) {
+  @media (min-width: 1300px) {
     grid-template-columns: 1fr 1fr;
   }
 
-  @media (min-width: 2380px) {
+  @media (min-width: 1920px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
   

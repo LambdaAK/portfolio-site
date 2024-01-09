@@ -83,12 +83,12 @@
   width: fit-content;
   margin-top: 40px;
 }
-@media (min-width: 1600px) {
+@media (min-width: 1300px) {
   .project-display-pictures {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (min-width: 2380px) {
+@media (min-width: 1920px) {
   .project-display-pictures {
     grid-template-columns: 1fr 1fr 1fr;
   }
