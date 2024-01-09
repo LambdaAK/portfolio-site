@@ -37,16 +37,12 @@ const StaticallyTypedFeature = () => {
       <div className="expand-button"
         onClick={
           () => {
-            console.log("clicked")
             const demo = document.getElementById("statically-typed-demo")
             if (demo) {
-              console.log("demo found")
               if (demo.style.display === "none") {
-                console.log('display is none, setting to flex')
                 demo.style.display = "flex"
               }
               else {
-                console.log("display is flex setting to none")
                 demo.style.display = "none"
               }
             }
