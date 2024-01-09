@@ -158,4 +158,31 @@
   cursor: pointer;
 }
 
+.repo-link {
+  box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.25);
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  padding: 10px;
+  transition: all 0.25s ease-in-out;
+  margin-top: 20px;
+  font-size: 25px;
+}
+@media (min-width: 768px) {
+  .repo-link {
+    font-size: 25px;
+  }
+}
+.repo-link:hover {
+  box-shadow: 0 5px 15px hsla(0, 0%, 0%, 0.25);
+  border-radius: 8px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0px rgba(22, 127, 239, 0.5), 0 0 15px 5px rgba(107, 241, 174, 0.7);
+  background-color: #2c2c2c;
+  color: white;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=ProjectDisplay.css.map */

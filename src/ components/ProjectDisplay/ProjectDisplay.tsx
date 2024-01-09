@@ -1,7 +1,7 @@
-import GitHubLink from "../GitHubLink/GitHubLink"
 import "./ProjectDisplay.css"
 
 import TerminalIcon from '@mui/icons-material/Terminal';
+import GithubIcon from '@mui/icons-material/GitHub';
 
 export interface ProjectDisplayProps {
   name: string,
@@ -14,20 +14,10 @@ export interface ProjectDisplayProps {
   extraComponents: (() => JSX.Element)[]
 }
 
-const ProjectName = (props: { name: string, link: string }) => {
+const ProjectName = (props: { name: string }) => {
   return (
     <div className="project-name">
       {props.name}
-      {
-        (() => {
-          if (props.link != "") return (
-            <GitHubLink
-              link={props.link}
-            />
-          )
-          else return <></>
-        })()
-      }
     </div >
   )
 }
@@ -158,17 +148,44 @@ const Try = (props: TryProps) => {
   else return <></>
 }
 
+const RepoLink = (props: { link: string, projectName: string }) => {
+  if (props.link != "") return (
+    <div className="repo-link"
+      onClick={
+        () => {
+          window.open(props.link)
+        }
+      }
+    >
+      <GithubIcon
+        style={
+          {
+            transform: "scale(1.5)",
+            marginRight: "10px",
+            marginTop: "auto",
+            marginBottom: "auto"
+          }
+        }
+      />
+      {props.projectName} repository
+    </div>
+  )
+  else return <></>
+}
+
 export default function ProjectDisplay(props: ProjectDisplayProps) {
 
   return (
     <div className="project-display">
-      <ProjectName name={props.name} link={props.github} />
+      <ProjectName name={props.name} />
       <ProjectDescription description={props.description} />
       <br />
 
       <TechnologiesUsed technologies={props.technologies} />
 
       <Try url={props.url} projectName={props.name} />
+
+      <RepoLink link={props.github} projectName={props.name} />
 
       <ProjectDisplayPictures pictures={props.pictures} />
       {
