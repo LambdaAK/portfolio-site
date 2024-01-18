@@ -416,7 +416,7 @@ const projectInfo: ProjectDisplayProps[] = [
 
     Currently, LambdaScript is an interpreted language with the lexer, parser, typechecker, and evaluator all written in OCaml.
 
-    In the future, I plan to make a compiler to JavaScript, which would allow LambdaScript to have a wider range of applications.
+    In the future, I plan to make a compiler to JavaScript, C, or Python, which would allow LambdaScript to have a wider range of applications.
 
     `,
     technologies: [
