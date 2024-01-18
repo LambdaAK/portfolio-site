@@ -26,17 +26,17 @@ type Tree a =
 Tree: * -> *
   `,
   app: `
-type App a b = a b
+App a b = a b
   `,
   appType: `
-App: (* -> *) -> * -> *
+type App: (A -> B) -> A -> B
   `,
   app2: `
 type App2 a b c d = a (b c d)
 `,
   app2Type: `
-App2: (* -> *)
--> (* -> * -> *) -> * -> * -> *`,
+App2 : (A -> B) -> 
+    (C -> D -> A) -> C -> D -> B`,
 
   optionBind: `
 /* Monadic application */
