@@ -1,12 +1,54 @@
 import "./Experience.css"
 import cornellLogo from "./../../../public/logos/Cornell_University_Logo.png"
 import staplesLogo from "./../../../public/logos/staples-logo.png"
+import cmuLogo from "./../../../public/logos/cmu-logo.jpg"
 
 
 const Skill = (props: { name: string }) => {
   return (
     <div className="skill">
       {props.name}
+    </div>
+  )
+}
+
+const REUSEExperience = () => {
+  return (
+    <div className="experience-instance">
+      <div className="cursor-on-hover">
+        <div className="experience-instance-header">
+          <img src={cmuLogo} alt="" className="experience-logo" />
+          <div className="employer"
+            onClick={() => {
+              window.open("https://www.cmu.edu/scs/s3d/reuse/")
+            }}
+          >
+            Carnegie Mellon University - School of Computer Science
+          </div>
+        </div>
+
+        <div className="position-name">Research Intern</div>
+      </div>
+
+      <div className="date">
+        May 2024 - Aug 2024
+      </div>
+
+      <div className="skills-header">Skills: </div>
+      <div className="skills">
+
+        <Skill name={"Java"} />
+        <Skill name={"Programming Languages"} />
+        <Skill name={"Mathematics"} />
+
+      </div>
+
+      <div className="responsibilities">
+        Responsibilities:
+        <ul>
+          <li>Starting May 2024, I will be working at REUSE (Reserch Experience for Undergraduates in Software Engineering), where I will be doing PL/SWE research.</li>
+        </ul>
+      </div>
     </div>
   )
 }
@@ -152,6 +194,7 @@ const StaplesExperience = () => {
 export default function Experience() {
   return (
     <div className="">
+      <REUSEExperience />
       <CMSXExperience />
       <TAExperience />
       <StaplesExperience />
