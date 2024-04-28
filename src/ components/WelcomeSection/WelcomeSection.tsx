@@ -48,19 +48,17 @@ const ImA = () => {
       <motion.pre ref={state} className="second-welcome-line">
         <TypeAnimation
           sequence={[
-            'Software Engineer',
+            'Software engineer',
             delay,
-            'Machine Learning Enthusiast',
+            'Machine learning enthusiast',
             delay,
-            'PL Enthusiast',
+            'PL enthusiast',
             delay,
-            "Full Stack Web Developer",
+            "Web developer",
             delay,
             "Chess enjoyer",
             delay,
             "Rubik's cube solver",
-            delay,
-            "Dog lover",
             delay,
           ]}
           wrapper="span"
@@ -195,9 +193,7 @@ const WelcomeContent = () => {
 
 const intro = [
   `Hi there! I'm Alex. I'm currently a student at Cornell University studying Computer Science and Mathematics.`,
-  `I am a software engineer at CMSX, where I use Java and React to improve a course management system used by over 8000 students every year.`,
-  `I am also a teaching assistant for CS 3110 (Data Stuctures and Functional Programming), where I share my love for OCaml and functional programming with students.`,
-  `I am passionate about web development, programming languages, machine learning.`,
+  `I am passionate about software engineering, programming languages, and machine learning.`,
   `Welcome to my website!`
 
 ]

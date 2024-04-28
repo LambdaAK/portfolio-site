@@ -27,7 +27,7 @@ const REUSEExperience = () => {
           </div>
         </div>
 
-        <div className="position-name">Research Intern</div>
+        <div className="position-name">PL/SWE Research Intern</div>
       </div>
 
       <div className="date">
@@ -47,6 +47,7 @@ const REUSEExperience = () => {
         Responsibilities:
         <ul>
           <li>Starting May 2024, I will be working at REUSE (Reserch Experience for Undergraduates in Software Engineering), where I will be doing PL/SWE research.</li>
+          <li>I will be working on SASyLF,an LF-based proof assistant specialized to checking theorems about programming languages and logics.</li>
         </ul>
       </div>
     </div>
