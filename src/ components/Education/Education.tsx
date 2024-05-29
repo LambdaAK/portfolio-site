@@ -39,7 +39,7 @@ const CollegeEducation = () => {
         }>
           <p>Major: Computer Science, Mathematics</p>
           <p>Date: 2022 - Present</p>
-          <p>Grade: 3.963 / 4</p>
+          <p>GPA: 4.024 / 4</p>
           <p>Applicable Courses: </p>
         </div>
 
