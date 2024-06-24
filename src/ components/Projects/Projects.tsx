@@ -100,7 +100,6 @@ const TypeInferenceFeature = () => {
       <div className="expand-button"
         onClick={
           () => {
-            console.log("clicked")
             const demo = document.getElementById("type-inference-demo")
             if (demo) {
               if (demo.style.display === "none") {
@@ -215,7 +214,7 @@ const KindsFeature = () => {
   return (
     <div className="ls-feature">
       <h1 className="feature-header">
-        Kinds and Higher Order Type Arithmetic
+        Higher-kinded types
       </h1>
       <p className="feature-desc">
         Kinds are the types of types. They are used to express the functionality of type constructors.
@@ -225,7 +224,6 @@ const KindsFeature = () => {
           () => {
             const demo = document.getElementById("kinds-demo")
             if (demo) {
-              console.log("demo found")
               if (demo.style.display === "none") {
                 demo.style.display = "flex"
               }
@@ -389,7 +387,6 @@ const LSFeatures = () => {
         Features
       </h1>
       <div className="ls-features">
-
         <StaticallyTypedFeature />
         <TypeInferenceFeature />
         <PolymorphicADTsFeatures />
@@ -414,15 +411,19 @@ const projectInfo: ProjectDisplayProps[] = [
 
     It also features a type inference engine similar to the Hindley-Milner algorithm, which can infer the types of most expressions, so you don't have to write them out.
 
-    Currently, LambdaScript is an interpreted language with the lexer, parser, typechecker, and evaluator all written in OCaml.
-
-    In the future, I plan to make a compiler to JavaScript, C, or Python, which would allow LambdaScript to have a wider range of applications.
+    After working on LambdaScript for about a year, I identified a few key areas where I could improve the interpreter. I decided to start from scratch and rewrite the interpreter for a similar language in TypeScript.
+    
+    This new version of LambdaScript has a similar syntax to the original, but with a more robust and reliable compiler architecture that is easier to maintain and extend.
 
     `,
     technologies: [
       {
         name: "OCaml",
         icon: "ocaml"
+      },
+      {
+        name: "TypeScript",
+        icon: "typescript"
       }
     ],
     url: "",
@@ -430,14 +431,12 @@ const projectInfo: ProjectDisplayProps[] = [
     features: [
       "Pattern matching",
       "Type inference",
-      "Higher order functions",
-      "Currying",
-      "Recursive functions",
-      "Anonymous functions",
-      "Closures"
+      "Parametric polymorphism",
+      "Recursion",
+      "Algebraic data types"
     ],
     extraComponents: [LSFeatures]
-  },
+  }, 
   {
     name: "AlgoSandbox",
     pictures: [
@@ -595,10 +594,6 @@ const projectInfo: ProjectDisplayProps[] = [
     extraComponents: []
   }
 ]
-
-
-
-
 
 
 export default function Projects() {
