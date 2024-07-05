@@ -20,6 +20,10 @@ import critterWorldTitle from "./../../../public/critter world pictures/critter_
 
 import critterWorldRecording1 from "./../../../public/critter world pictures/critter_world_recording_1.mp4"
 import spiralCritter from "./../../../public/critter world pictures/spiral_critter.mp4"
+
+import linearRegression from "./../../../public/ML Library pictures/linear_regression.png"
+import univarOptimizer from "./../../../public/ML Library pictures/univar_optimizer.png"
+
 import code from "./lsCode"
 
 const StaticallyTypedFeature = () => {
@@ -563,6 +567,29 @@ const projectInfo: ProjectDisplayProps[] = [
       }
     ],
     github: "https://github.com/LambdaAK/HabitStack",
+    features: [],
+    extraComponents: []
+  },
+  {
+    name: "ML Library",
+    url: "",
+    pictures: [linearRegression, univarOptimizer],
+    description: "A machine learning library implemented in Python. It features a variety of machine learning algorithms, including linear regression, perceptron, PCA, clustering, and more!",
+    technologies: [
+      {
+        name: "Python",
+        icon: "python"
+      },
+      {
+        name: "NumPy",
+        icon: "numpy"
+      },
+      {
+        name: "SymPy",
+        icon: "sympy"
+      }
+    ],
+    github: "https://github.com/LambdaAK/ML-Library",
     features: [],
     extraComponents: []
   },
