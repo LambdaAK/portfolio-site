@@ -21,8 +21,9 @@ import critterWorldTitle from "./../../../public/critter world pictures/critter_
 import critterWorldRecording1 from "./../../../public/critter world pictures/critter_world_recording_1.mp4"
 import spiralCritter from "./../../../public/critter world pictures/spiral_critter.mp4"
 
-import linearRegression from "./../../../public/ML Library pictures/linear_regression.png"
-import univarOptimizer from "./../../../public/ML Library pictures/univar_optimizer.png"
+import kernelperceptron from "./../../../public/SimpleML pictures/KernelPerceptron.png"
+import linearregression from "./../../../public/SimpleML pictures/LinearRegression.png"
+import linearalgebra from "./../../../public/SimpleML pictures/linearalgebra.png"
 
 import code from "./lsCode"
 
@@ -571,25 +572,17 @@ const projectInfo: ProjectDisplayProps[] = [
     extraComponents: []
   },
   {
-    name: "ML Library",
+    name: "SimpleML",
     url: "",
-    pictures: [linearRegression, univarOptimizer],
-    description: "A machine learning library implemented in Python. It features a variety of machine learning algorithms, including linear regression, perceptron, PCA, clustering, and more!",
+    pictures: [kernelperceptron, linearalgebra, linearregression],
+    description: "A comprehensive mathematics and machine learning library developed in Rust, featuring a robust linear algebra module for efficient matrix operations. The machine learning component includes linear and logistic regression, clustering techniques, support vector machines, principal component analysis, and more, all designed for high performance and scalability.",
     technologies: [
       {
-        name: "Python",
-        icon: "python"
-      },
-      {
-        name: "NumPy",
-        icon: "numpy"
-      },
-      {
-        name: "SymPy",
-        icon: "sympy"
+        name: "Rust",
+        icon: "rust"
       }
     ],
-    github: "https://github.com/LambdaAK/ML-Library",
+    github: "https://github.com/LambdaAK/SimpleML",
     features: [],
     extraComponents: []
   },
