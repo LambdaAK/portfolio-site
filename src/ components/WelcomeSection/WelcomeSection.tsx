@@ -192,7 +192,7 @@ const WelcomeContent = () => {
 
 
 const intro = [
-  `Hi there! I'm Alex. I'm currently a student at Cornell University studying Computer Science and Mathematics.`,
+  `Hi there! I'm Alex. I'm Junior at Cornell studying Computer Science and Mathematics.`,
   `I am passionate about software engineering, programming languages, and machine learning.`,
   `Welcome to my website!`
 
