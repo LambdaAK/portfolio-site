@@ -39,7 +39,7 @@ const CollegeEducation = () => {
         }>
           <p>Major: Computer Science, Mathematics</p>
           <p>Date: 2022 - Present</p>
-          <p>GPA: 4.024 / 4</p>
+          <p>GPA: 4.062 / 4.0</p>
           <p>Applicable Courses: </p>
         </div>
 
@@ -87,7 +87,7 @@ const HighSchoolEducation = () => {
           }
         }>
           <p>Date: 2019-2022</p>
-          <p>Grade: 4.32 / 4</p>
+          <p>GPA: 4.32 / 4.0</p>
           <p>Applicable Courses: </p>
         </div>
         <div className="courses">
