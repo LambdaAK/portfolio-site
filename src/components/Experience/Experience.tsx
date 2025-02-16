@@ -73,7 +73,7 @@ const CMSXExperience = () => {
           >Cornell Computer Science Course Management System X (CMSX)</div>
         </div>
 
-        <div className="position-name">Full Stack Software Engineer and Treasurer</div>
+        <div className="position-name">Vice President & Full Stack Software Engineer</div>
       </div>
 
       <div className="date">
@@ -148,6 +148,7 @@ const TAExperience = () => {
       <div className="responsibilities">
         Responsibilities:
         <ul>
+          <li>Courses: Machine Learning, Analysis of Algorithms, Data Strucutres & Functional Programming</li>
           <li>Recipient of the CS Course Staff Award for providing exceptional service to students (awarded to less than 10% of TAs).</li>
           <li>Lead presentation-style recitations, giving clear and engaging explanations of course content to 30+ students per week.</li>
           <li>Hold office hours to help students grasp rigorous proofs about greedy, dynamic programming, and graph algorithms.</li>

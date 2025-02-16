@@ -1,7 +1,7 @@
 import './App.css'
-import Nav from './ components/Nav/Nav'
-import Projects from './ components/Projects/Projects'
-import WelcomeSection from './ components/WelcomeSection/WelcomeSection'
+import Nav from './components/Nav/Nav'
+import Projects from './components/Projects/Projects'
+import WelcomeSection from './components/WelcomeSection/WelcomeSection'
 
 import { useEffect } from 'react'
 
@@ -10,8 +10,8 @@ import { motion as m, useAnimate } from "framer-motion"
 import 'react-gallery-carousel/dist/index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
-import Education from './ components/Education/Education'
-import Experience from './ components/Experience/Experience'
+import Education from './components/Education/Education'
+import Experience from './components/Experience/Experience'
 
 
 function App() {
